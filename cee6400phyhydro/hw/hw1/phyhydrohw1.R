@@ -1,6 +1,3 @@
-
-###Problem 5
-
 ##Importing dataretrieval, ggplot tools
 library(dataRetrieval)
 library(ggplot2)
@@ -8,16 +5,97 @@ library(ggplot2)
 ##Retrieve daily discharge for last 20 years
 siteNo <- "06713500"
 pCode <- "00060"
-start.date <- "1996-09-01"
+start.date <- "1990-01-01"
 end.date <- "2016-09-01"
-cherry_creek <- readNWISuv(siteNumbers = siteNo, parameterCd = pCode, startDate = start.date, endDate = end.date)
-cherry_creek <-renameNWISColumns(cherry_creek)
+cherry_creek = readNWISdv(siteNo,"00060",start.date,end.date)
 
-#Slicing list to obtain 4th column
-#chery_creek_4 <- chery_creek[4]  #this didnt work out
+##TODO
+##Problem 7: Flow duration curve
+##Problem 8: Monthly mean streamflow
 
-##Daily discharge plot
-plotdd <- ggplot(data = cherry_creek, aes(dateTime, Flow_Inst)) + geom_line() #From https://owi.usgs.gov/R/dataRetrieval.html#14. Not familiar with ggplot2
+##Problem 5: Time series of daily discharge
+Q=cherry_creek$X_00060_00003
+dt=cherry_creek$Date
+plot(dt,Q,type="l")
+
+##Problem 6: Average annual flow, peak flow, annual 7 day minimum flow 
+yy=as.numeric(format.Date(dt,"%Y")) #year
+mo=as.numeric(format.Date(dt,"%m")) #month
+wy=ifelse(mo>=10,yy+1,yy) #some check, if a year does not have 10 months of data !!!!!!!!!
+yrseq=unique(wy) #unique years
+
+Qmean=rep(NA,length(yrseq)) #Annual Flow
+Q7=rep(NA,length(yrseq)) #Annual 7 day min
+Qmax=rep(NA,length(yrseq)) # Annual peak flow
+for(i in 1:length(yrseq)){
+  yr=yrseq[i]
+  Qmean[i]=mean(Q[wy==yr])
+  Q7[i]=min(Q[wy==yr]) #Not implemented right
+  Qmax[i]=max(Q[wy==yr])
+}
+plot(yrseq,Qmean,type="l")
+plot(yrseq,Qmax,ylim=c(0,max(Qmax)))
+lines(yrseq,Qmean)
+points(yrseq,Q7,pch=2,col=2)
+
+
+##Copied from class code, TODO
+# Statistics on this data
+x=sort(Qmean)
+n=length(Qmean)
+nmid=n/2+0.5
+x[nmid]
+median(Qmean)
+p=(1:n-0.4)/(n+0.2)
+approx(p,x,0.25)
+approx(p,x,0.75)
+quantile(Qmean,probs=c(0.25,0.5,0.75))
+quantile(Q7,probs=c(0.25,0.5,0.75))
+
+mean(Qmean)
+sd(Qmean)
+sd(Qmean)/mean(Qmean)
+
+Qs=sort(Q)
+n=length(Qs)
+p=((1:n)-0.4)/(n+0.2)
+plot(1-p,Qs,log="y")
+
+
+normplot.r=function(x,labvals=c(0.1,0.2,0.5,0.8,0.9,0.95,0.99,0.995),b=0,exceed=F,log="",xlab="",ylab="")
+{
+  xs=sort(x)
+  n=length(xs)
+  i=1:n
+  p=(i-b)/(n+1-2*b) # General plotting position, See Chow et al p396
+  if(exceed)p=1-p
+  q=qnorm(p) # Normal quantile
+  plot(q,xs,xaxt="n",log=log,xlab=xlab,ylab=ylab)
+  qv=qnorm(labvals)
+  axis(1,at=qv,label=labvals)
+} 
+
+normplot.r(Q,log="y",exceed=T,xlab="Exceedence frequency",ylab="Q",b=0.4)
+
+# Monthly mean streamflow
+yrmo=yy*100+mo
+yrmoseq=unique(yrmo)
+Qmonth=rep(NA,length(yrmoseq))
+for(i in 1:length(yrmoseq)){
+  ii=yrmoseq[i]
+  Qmonth[i]=mean(Q[yrmo==ii])
+}
+plot(1:length(yrmoseq),Qmonth,type="l")
+year=trunc(yrmoseq/100)
+month=yrmoseq-year*100
+Qmm=rep(NA,12)
+for(mm in 1:12){
+  Qmm[mm]=mean(Qmonth[month==mm])
+}
+plot(1:12,Qmm,type="l")
+
+
+
 
 
 
