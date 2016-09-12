@@ -35,9 +35,7 @@ for(i in 1:length(yrseq)){
   Qmax[i]=max(Q[wy==yr])
   #Average 7 day minimum, which is the lowest of the flow rate sequence of 7 day moving average daily discharge values
   Q7temp = Q[wy==yr]
-  print(Q7temp)
   Q7[i] = min(ma7(Q7temp),na.rm=TRUE)
-  print(Q7[i])
 }
 plot(yrseq,Qmax,ylim=c(0,max(Qmax)), ylab="Flow rate [cfs]", xlab = "Year")
 lines(yrseq,Qmean, col = 3)
@@ -55,30 +53,17 @@ approx(p,x,0.25)
 approx(p,x,0.75)
 quantile(Qmean,probs=c(0.25,0.5,0.75))
 quantile(Q7,probs=c(0.25,0.5,0.75))
-
 mean(Qmean)
 sd(Qmean)
 sd(Qmean)/mean(Qmean)
-
 Qs=sort(Q)
 n=length(Qs)
 p=((1:n)-0.4)/(n+0.2)
-plot(1-p,Qs,log="y")
-
-normplot.r=function(x,labvals=c(0.1,0.2,0.5,0.8,0.9,0.95,0.99,0.995),b=0,exceed=F,log="",xlab="",ylab="")
-{
-  xs=sort(x)
-  n=length(xs)
-  i=1:n
-  p=(i-b)/(n+1-2*b) # General plotting position, See Chow et al p396
-  if(exceed)p=1-p
-  q=qnorm(p) # Normal quantile
-  plot(q,xs,xaxt="n",log=log,xlab=xlab,ylab=ylab)
-  qv=qnorm(labvals)
-  axis(1,at=qv,label=labvals)
-} 
-
-normplot.r(Q,log="y",exceed=T,xlab="Exceedence frequency",ylab="Q",b=0.4)
+plot(1-p,Qs,log="y",xlab="Exceedence frequency",ylab="Daily discharge [cfs]")
+#To find daily flow that has a exceedance greater than 0.90
+exceed = round(1-p,3)
+q90 = mean(Qs[which(exceed == 0.900)])
+print(q90)
 
 
 ##Problem 8: Monthly mean streamflow
