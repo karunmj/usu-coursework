@@ -1,51 +1,71 @@
 """
-Questions
-	0. Importing CSV best way. Each row as a dictionary, a panda dataframe?	
-	1. Preprocessing - remove any building whose wu is ''?
-	1. Best way to viz 1722 boxplots of all buildings? 
+Questions - 9/14
+	1. Preprocessing - remove any building whose wu is NaN?
 	1.1 Top 5 depts: in terms of number of buildings?
-	1.2 Can we regard '0' as an extreme value (and ignore the same in 1.1)? Is there an upperbound(TODO: plot and see)?
+	1.2 Can we regard '0' as an extreme value? Is there an upperbound?
 """
 
-#Importing csv data 
-import csv
-
-#Not used currently
-import pandas
-from ggplot import *
-
-
-#Plotting
+import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-with open('CAStateBuildingMetrics.csv', 'r') as csvfile:
-	#Is this the best method? How about pandas data object?
-	reader = csv.DictReader(csvfile)
-	tcounter = 0
-
-	for row in reader:
-		#Water usage analysis
-		tcounter+=1
-		if row['Water Use (All Water Sources) (kgal)'] == '':
-			print "NA"
-		if row['Water Use (All Water Sources) (kgal)'] == '':
-			print row['Property Id']
-		# else:
-		# 	print row['Water Use (All Water Sources) (kgal)']
-	print tcounter	
-
-# #Example code for plotting boxplots. Currenty matplotlob, numpy but later ggplot?
-# spread = np.random.rand(50) * 100
-# center = np.ones(25) * 50
-# flier_high = np.random.rand(10) * 100 + 100
-# flier_low = np.random.rand(10) * -100
-# data = np.concatenate((spread, center, flier_high, flier_low), 0)
-
-# # basic plot
-# plt.boxplot(data)
-# plt.show()
+csdf = pd.read_csv('CAStateBuildingMetrics.csv')
 
 
+
+###############################
+####1. Water usage analysis####
+###############################
+
+#Preprocessing - ignoring NaN values
+csdfclean = csdf['Water Use (All Water Sources) (kgal)'].dropna()
+
+print "Mean with outliers", csdfclean.mean()
+print "Median with outliers", csdfclean.median()
+print "Mode with outliers", csdfclean.mode()
+
+#Top 5 departments
+#TODO
+
+#Box plots for all buldings
+plt.boxplot(csdfclean)
+plt.show()
+#Box plot for top 5 departments
+#TODO
+
+#Ignoring outliers
+# csdfcleanno = ??
+
+# print "Mean without outliers", csdfcleanno.mean()
+# print "Median without outliers", csdfcleanno.median()
+# print "Mode without outliers", csdfcleanno.mode()
+
+#Box plots for all buldings without outliers
+plt.boxplot(csdfclean,0,'') #not sure
+plt.show()
+#Box plot for top 5 departments without outliers
+#TODO
+
+
+
+#####################################
+####2. Resource usage correlation####
+#####################################
+
+#Scatter plot between electricity and water usage
+#TODO: how does plot deal with NaN values
+plt.scatter(csdf['Water Use (All Water Sources) (kgal)'], csdf['Electricity Use (kWh)'], c=np.random.rand(len(csdf.index)))
+plt.show()
+
+#Persons correlation
+print "Persons correlation bw electricitiy and water usage ", csdf[['Water Use (All Water Sources) (kgal)', 'Electricity Use (kWh)']].corr(method='pearson')
+
+#For the top five dept
+#TODO
+
+
+
+################################
+####3. Building similarities####
+################################
 
