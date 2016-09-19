@@ -1,0 +1,37 @@
+PRISM Time Series Data
+Location:  Lat: 39.7577   Lon: -105.0108   Elev: 1598m
+Climate variable: ppt
+Spatial resolution: 4km
+Period: 1990 - 2015
+Dataset: AN81m
+PRISM day definition: 24 hours ending at 1200 UTC on the day shown
+Grid Cell Interpolation: On
+Time series generated: 2016-Sep-18
+details: http://rma.nacse.org/documents/PRISM_datasets.pdf
+Date,ppt (mm)
+1990,438.92
+1991,447.64
+1992,395.77
+1993,341.22
+1994,310.64
+1995,484.19
+1996,363.33
+1997,496.34
+1998,414.31
+1999,517.86
+2000,331.76
+2001,376.83
+2002,248.77
+2003,375.82
+2004,495.04
+2005,380.65
+2006,326.62
+2007,436.77
+2008,309.19
+2009,526.56
+2010,323.87
+2011,481.90
+2012,282.39
+2013,429.26
+2014,496.26
+2015,647.32
