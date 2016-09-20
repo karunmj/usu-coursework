@@ -1,8 +1,6 @@
 """
 Questions - 9/14
-	1. Preprocessing - remove any building whose wu is NaN?
-	1.1 Top 5 depts: in terms of number of buildings?
-	1.2 Can we regard '0' as an extreme value? Is there an upperbound?
+	1. What is the upperbound for water consumption?
 """
 
 import pandas as pd
@@ -24,8 +22,16 @@ print "Mean with outliers", csdfclean.mean()
 print "Median with outliers", csdfclean.median()
 print "Mode with outliers", csdfclean.mode()
 
-#Top 5 departments
-#TODO
+#List of top 5 departments in terms of number of buildings
+uniquedept = dict()
+
+for index, row in csdf.iterrows():
+	if row['Department'] in uniquedept.keys():
+		uniquedept[row['Department']]+=1
+	else:
+		uniquedept[row['Department']]=1 
+
+top5dept = sorted(uniquedept.items(), key=lambda x:x[1], reverse = True)[0:5]
 
 #Box plots for all buldings
 plt.boxplot(csdfclean)
@@ -34,7 +40,7 @@ plt.show()
 #TODO
 
 #Ignoring outliers
-# csdfcleanno = ??
+# TODO: csdfcleanno
 
 # print "Mean without outliers", csdfcleanno.mean()
 # print "Median without outliers", csdfcleanno.median()
@@ -48,24 +54,24 @@ plt.show()
 
 
 
-#####################################
-####2. Resource usage correlation####
-#####################################
+# #####################################
+# ####2. Resource usage correlation####
+# #####################################
 
-#Scatter plot between electricity and water usage
-#TODO: how does plot deal with NaN values
-plt.scatter(csdf['Water Use (All Water Sources) (kgal)'], csdf['Electricity Use (kWh)'], c=np.random.rand(len(csdf.index)))
-plt.show()
+# #Scatter plot between electricity and water usage
+# #TODO: how does plot deal with NaN values
+# plt.scatter(csdf['Water Use (All Water Sources) (kgal)'], csdf['Electricity Use (kWh)'], c=np.random.rand(len(csdf.index)))
+# plt.show()
 
-#Persons correlation
-print "Persons correlation bw electricitiy and water usage ", csdf[['Water Use (All Water Sources) (kgal)', 'Electricity Use (kWh)']].corr(method='pearson')
+# #Persons correlation
+# print "Persons correlation bw electricitiy and water usage ", csdf[['Water Use (All Water Sources) (kgal)', 'Electricity Use (kWh)']].corr(method='pearson')
 
-#For the top five dept
-#TODO
+# #For the top five dept
+# #TODO
 
 
 
-################################
-####3. Building similarities####
-################################
+# ################################
+# ####3. Building similarities####
+# ################################
 
