@@ -10,8 +10,6 @@ import numpy as np
 
 csdf = pd.read_csv('CAStateBuildingMetrics.csv')
 
-
-
 ###############################
 ####1. Water usage analysis####
 ###############################
@@ -19,13 +17,13 @@ csdf = pd.read_csv('CAStateBuildingMetrics.csv')
 #Preprocessing - ignoring NaN values. Mostly incorrect, may have to replace NaN with the mean?
 csdfclean = csdf['Water Use (All Water Sources) (kgal)'].dropna()
 
+#Mean, Median, mode of all data
 print "Mean with outliers", csdfclean.mean()
 print "Median with outliers", csdfclean.median()
 print "Mode with outliers", csdfclean.mode()
 
 #List of top 5 departments in terms of number of buildings
 uniquedept = dict()
-
 for index, row in csdf.iterrows():
 	if row['Department'] in uniquedept.keys():
 		uniquedept[row['Department']]+=1
@@ -34,38 +32,32 @@ for index, row in csdf.iterrows():
 
 top5dept = sorted(uniquedept.items(), key=lambda x:x[1], reverse = True)[0:5]
 
-#Box plots for all buldings
+#Box plot for all buldings
 plt.boxplot(csdfclean)
 plt.show()
 
-#Box plot for top 5 departments (5 box plots total)
-for index, dept in enumerate(top5dept):
-	print index, dept[0]
-
-top1=pd.DataFrame()
-top2=[]
-top3=[]
-top4=[]
-top5=[]
+#Box plots for top 5 dept
+#csdf_top5=pd.DataFrame(columns=[dept[0] for dept in top5dept])
+csdf_top5=[]
 
 for index, row in csdf.iterrows():
 	if row.Department in [dept[0] for dept in top5dept]:
 		print "top 5 building!"
-		#top(name).append(row)
+		print dept[0]
+		#TODO: how to store above info for plotting? Tried data frame with 5 columns, after each loop add. Now trying tuples in a list
+		#csdf_top5.append({'DPR':6}, ignore_index=True)
+
 	else:
 		print "not a top5 building!"
 		
-csdfclean_top5 = [top1, top2, top3, top4, top5]
-plt.figure()
-plt.boxplot(csdfclean_top5)
-plt.show()
+# plt.figure()
+# plt.boxplot(csdf_top5)
+# plt.show()
 
-
-
-
-#Ignoring outliers
+#Ignoring outliers, preprocessing
 # TODO: csdfcleanno
 
+# Mean, Median, mode of datawithout outiers
 # print "Mean without outliers", csdfcleanno.mean()
 # print "Median without outliers", csdfcleanno.median()
 # print "Mode without outliers", csdfcleanno.mode()
@@ -73,7 +65,8 @@ plt.show()
 #Box plots for all buldings without outliers
 plt.boxplot(csdfclean,0,'') #not sure
 plt.show()
-#Box plot for top 5 departments without outliers
+
+#Box plots for top 5 departments without outliers
 #TODO
 
 
