@@ -54,20 +54,20 @@ plt.show()
 
 
 
-# #####################################
-# ####2. Resource usage correlation####
-# #####################################
+#####################################
+####2. Resource usage correlation####
+#####################################
 
-# #Scatter plot between electricity and water usage
-# #TODO: how does plot deal with NaN values
-# plt.scatter(csdf['Water Use (All Water Sources) (kgal)'], csdf['Electricity Use (kWh)'], c=np.random.rand(len(csdf.index)))
-# plt.show()
+#Scatter plot between electricity and water usage
+#TODO: how does plot deal with NaN values
+plt.scatter(csdf['Water Use (All Water Sources) (kgal)'], csdf['Electricity Use (kWh)'], c=np.random.rand(len(csdf.index)))
+plt.show()
 
-# #Persons correlation
-# print "Persons correlation bw electricitiy and water usage ", csdf[['Water Use (All Water Sources) (kgal)', 'Electricity Use (kWh)']].corr(method='pearson')
+#Persons correlation
+print "Persons correlation bw electricitiy and water usage ", csdf[['Water Use (All Water Sources) (kgal)', 'Electricity Use (kWh)']].corr(method='pearson')
 
-# #For the top five dept
-# #TODO
+#For the top five dept
+#TODO
 
 
 
