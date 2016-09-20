@@ -1,6 +1,7 @@
 """
 Questions - 9/14
-	1. What is the upperbound for water consumption?
+	1. Best way to deal with NaN for water consumption: ignore / replace with mean of all water values/ others?
+	2. What is the upperbound for water consumption?
 """
 
 import pandas as pd
@@ -15,7 +16,7 @@ csdf = pd.read_csv('CAStateBuildingMetrics.csv')
 ####1. Water usage analysis####
 ###############################
 
-#Preprocessing - ignoring NaN values
+#Preprocessing - ignoring NaN values. Mostly incorrect, may have to replace NaN with the mean?
 csdfclean = csdf['Water Use (All Water Sources) (kgal)'].dropna()
 
 print "Mean with outliers", csdfclean.mean()
@@ -36,8 +37,31 @@ top5dept = sorted(uniquedept.items(), key=lambda x:x[1], reverse = True)[0:5]
 #Box plots for all buldings
 plt.boxplot(csdfclean)
 plt.show()
-#Box plot for top 5 departments
-#TODO
+
+#Box plot for top 5 departments (5 box plots total)
+for index, dept in enumerate(top5dept):
+	print index, dept[0]
+
+top1=pd.DataFrame()
+top2=[]
+top3=[]
+top4=[]
+top5=[]
+
+for index, row in csdf.iterrows():
+	if row.Department in [dept[0] for dept in top5dept]:
+		print "top 5 building!"
+		#top(name).append(row)
+	else:
+		print "not a top5 building!"
+		
+csdfclean_top5 = [top1, top2, top3, top4, top5]
+plt.figure()
+plt.boxplot(csdfclean_top5)
+plt.show()
+
+
+
 
 #Ignoring outliers
 # TODO: csdfcleanno
@@ -74,4 +98,6 @@ print "Persons correlation bw electricitiy and water usage ", csdf[['Water Use (
 # ################################
 # ####3. Building similarities####
 # ################################
+
+
 
