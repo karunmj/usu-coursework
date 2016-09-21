@@ -1,15 +1,15 @@
 """
-Questions - 9/14
-	1. Best way to deal with NaN for water consumption: ignore / replace with mean of all water values/ others?
-	2. What is the upperbound, lowerbound for water consumption? q1-q3?
+Questions
+
 TODO - 
-	1. Ignoring outliers
 	2. Q3
 """
 
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy import spatial
+import statistics
 
 csdf = pd.read_csv('CAStateBuildingMetrics.csv')
 
@@ -18,7 +18,6 @@ csdf = pd.read_csv('CAStateBuildingMetrics.csv')
 ###############################
 
 #Preprocessing - Replacing NaN with 0 / mean
-#csdfclean = csdf['Water Use (All Water Sources) (kgal)'].dropna()
 csdfclean = csdf['Water Use (All Water Sources) (kgal)'].fillna(csdf['Water Use (All Water Sources) (kgal)'].mean())
 
 #Mean, Median, mode of all data
@@ -50,21 +49,14 @@ for index, row in csdf.iterrows():
 plt.boxplot([csdf_top5['CAL TRANS'].dropna(), csdf_top5['CAL FIRE'].dropna(), csdf_top5['DPR'].dropna(), csdf_top5['CHP'].dropna(), csdf_top5['CMD'].dropna()])
 plt.show()
 
-#Ignoring outliers, preprocessing
+#Ignoring outliers, preprocessing with upper limit = q3 + (1.5*qir), lower limit = q1 - (1.5*qir)
 q3=csdfclean.quantile(0.75)
 q1=csdfclean.quantile(0.25)
 
 # Mean, Median, mode of datawithout outiers
-# print "Mean without outliers", csdfcleanno.mean()
-# print "Median without outliers", csdfcleanno.median()
-# print "Mode without outliers", csdfcleanno.mode()
-
-#Box plots for all buldings without outliers
-plt.boxplot(csdfclean,0,'') #not sure
-plt.show()
-
-#Box plots for top 5 departments without outliers
-#TODO
+print "Mean without outliers", statistics.mean([x for x in csdfclean if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
+print "Median without outliers", statistics.median([x for x in csdfclean if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
+print "Mode without outliers", statistics.mode([x for x in csdfclean if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
 
 
 
@@ -72,8 +64,7 @@ plt.show()
 ####2. Resource usage correlation####
 #####################################
 
-#Scatter plot between electricity and water usage
-#TODO: how does plot deal with NaN values
+#Scatter plot between electricity and water usage TODO: how does plot deal with NaN values
 plt.scatter(csdf['Water Use (All Water Sources) (kgal)'], csdf['Electricity Use (kWh)'], c=np.random.rand(len(csdf.index)))
 plt.show()
 
@@ -89,6 +80,12 @@ print "Persons correlation bw electricitiy and water usage ", csdf[['Water Use (
 # ####3. Building similarities####
 # ################################
 
+# Similarities: Euclidian, Manahattan, Cosine
+# Variabes of interest include 
+# 	Resource usage: electricity use(kwh), natural gas use(therms), propane use(kbtu), water use(kgal), site energy use (kbtu)
+# 	Property variables: dept name, city, primary property type, area
+# 	Both together
+
 #List of attributes
 list(csdf.columns.values)
 
@@ -96,9 +93,4 @@ list(csdf.columns.values)
 mendota_main_st = csdf.loc[csdf['Property Name']=='MENDOTA MAINTENANCE STATION']
 metro_state_hosp = csdf.loc[csdf['Property Name']=='METROPOLITAN STATE HOSPITAL']
 long_beach_foffice = csdf.loc[csdf['Property Name']=='LONG BEACH FIELD OFFICE']
-
-#Variabes of interest include 
-#Resource usage: electricity use, natural gas use, propane use, water use, site energy use
-#Property variables: dept name, city, primary property type, area
-#Both together
 
