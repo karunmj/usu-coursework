@@ -1,3 +1,5 @@
+#TODO: nicer plots, scatteplots for top5, prop var conversion, which norm better
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -12,7 +14,7 @@ csdf = pd.read_csv('CAStateBuildingMetrics.csv')
 #Preprocessing - Replacing NaN with 0 / mean
 csdf_clean_water= csdf[['Water Use (All Water Sources) (kgal)', 'Department']].fillna(csdf['Water Use (All Water Sources) (kgal)'].mean())
 
-#Mean, Median, mode of all data
+##Mean, Median, mode of all data
 print "Mean with outliers", csdf_clean_water.mean()
 print "Median with outliers", csdf_clean_water.median()
 print "Mode with outliers", csdf_clean_water.mode()
@@ -26,14 +28,14 @@ for index, row in csdf.iterrows():
 		uniquedept[row['Department']]=1 
 top5dept = sorted(uniquedept.items(), key=lambda x:x[1], reverse = True)[0:5]
 	
-#Box plot for all buldings
+##Box plot for all buldings
 plt.boxplot(csdf_clean_water['Water Use (All Water Sources) (kgal)'])
 plt.show()
 #Without outliers, zoomed in
 plt.boxplot(csdf_clean_water['Water Use (All Water Sources) (kgal)'],0,'') 
 plt.show()
 
-#Box plots for top 5 dept
+##Box plots for top 5 dept
 csdf_top5_water=pd.DataFrame(columns=[dept[0] for dept in top5dept])
 for index, row in csdf_clean_water.iterrows():
 	if row.Department in [dept[0] for dept in top5dept]:
@@ -46,7 +48,7 @@ plt.show()
 q3=csdf_clean_water['Water Use (All Water Sources) (kgal)'].quantile(0.75)
 q1=csdf_clean_water['Water Use (All Water Sources) (kgal)'].quantile(0.25)
 
-# Mean, Median, mode of datawithout outiers
+## Mean, Median, mode of datawithout outiers
 print "Mean without outliers", statistics.mean([x for x in csdf_clean_water['Water Use (All Water Sources) (kgal)'] if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
 print "Median without outliers", statistics.median([x for x in csdf_clean_water['Water Use (All Water Sources) (kgal)'] if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
 print "Mode without outliers", statistics.mode([x for x in csdf_clean_water['Water Use (All Water Sources) (kgal)'] if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
@@ -58,11 +60,11 @@ print "Mode without outliers", statistics.mode([x for x in csdf_clean_water['Wat
 #####################################
 csdf_clean_elec = csdf[['Electricity Use (kWh)', 'Department']].fillna(csdf['Electricity Use (kWh)'].mean())
 
-#Scatter plot between electricity and water usage
+##Scatter plot between electricity and water usage
 plt.scatter(csdf_clean_water['Water Use (All Water Sources) (kgal)'], csdf_clean_elec['Electricity Use (kWh)'], c=np.random.rand(len(csdf.index)))
 plt.show()
 
-#Persons correlation
+##Persons correlation
 print "Persons correlation bw electricitiy and water usage ", stats.pearsonr(csdf_clean_water['Water Use (All Water Sources) (kgal)'], csdf_clean_elec['Electricity Use (kWh)'])
 
 
@@ -88,7 +90,7 @@ for index, row in csdf_clean_elec.iterrows():
 #List of attributes
 list(csdf.columns.values)
 
-#Clean electricity, natural gas, propane, water, site energy use
+##Clean electricity, natural gas, propane, water, site energy use
 csdf_clean_elec=csdf[['Property Name', 'Electricity Use (kWh)']].fillna(csdf['Electricity Use (kWh)'].mean())
 csdf_clean_water=csdf['Water Use (All Water Sources) (kgal)'].fillna(csdf['Water Use (All Water Sources) (kgal)'].mean())
 csdf_clean_naturalgas = csdf['Natural Gas Use (therms)'].fillna(csdf['Natural Gas Use (therms)'].mean())
@@ -104,21 +106,38 @@ metro_state_hosp = csdf_clean_totalresusage.loc[csdf['Property Name']=='METROPOL
 long_beach_foffice = csdf_clean_totalresusage.loc[csdf['Property Name']=='LONG BEACH FIELD OFFICE']
 
 #Mendota
-sorted([[spatial.distance.cosine(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
-sorted([[spatial.distance.euclidean(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
-sorted([[spatial.distance.cityblock(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
+print "Mendota res cosine ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.cosine(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cosine(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
+print "Mendota res euclidian ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.euclidean(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.euclidean(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
+print "Mendota res manhattan ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.cityblock(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cityblock(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
 
-#Metro
-sorted([[spatial.distance.cosine(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
-sorted([[spatial.distance.euclidean(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
-sorted([[spatial.distance.cityblock(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
+# #Metro
+print "Metro res cosine ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.cosine(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cosine(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
+print "Metro res euclidian ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.euclidean(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.euclidean(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
+print "Metro res manhattan ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.cityblock(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cityblock(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
 
-#Long beach
-sorted([[spatial.distance.cosine(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
-sorted([[spatial.distance.euclidean(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
-sorted([[spatial.distance.cityblock(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
+# #Long beach
+print "Long beach res cosine ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.cosine(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cosine(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
+print "Long beach res euclidian ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.euclidean(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.euclidean(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
+print "Long beach res manhattan ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.cityblock(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cityblock(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
 
-#Department name, city, primary property type, property area
+##Department name, city, primary property type, property area
+#TODO: mapping function to convert nominal to quant metric
 len(set(csdf['Department Name']))
 len(set(csdf['Primary Property Type ']))
 len(set(csdf['City']))
+
+# for index, row in csdf_clean_elec.iterrows():
+# 	print index
+
+csdf_clean_deptname = csdf[['Property Name', 'Electricity Use (kWh)']]
+csdf_clean_city = csdf['City']
+csdf_clean_proptype= csdf['Primary Property Type ']
+csdf_clean_proparea = csdf['Property Area(ft\xc2\xb2)'].fillna(csdf['Property Area(ft\xc2\xb2)'].mean())
+
+csdf_clean_propvar = pd.concat([csdf_clean_deptname, csdf_clean_city, csdf_clean_proptype, csdf_clean_proparea], axis=1)
+
+
+
+
+
+
