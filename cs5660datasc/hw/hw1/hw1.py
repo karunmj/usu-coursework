@@ -1,14 +1,7 @@
-"""
-Questions
-
-TODO - 
-	2. Q3
-"""
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy import spatial
+from scipy import spatial, stats
 import statistics
 
 csdf = pd.read_csv('CAStateBuildingMetrics.csv')
@@ -16,14 +9,13 @@ csdf = pd.read_csv('CAStateBuildingMetrics.csv')
 ###############################
 ####1. Water usage analysis####
 ###############################
-
 #Preprocessing - Replacing NaN with 0 / mean
-csdfclean = csdf['Water Use (All Water Sources) (kgal)'].fillna(csdf['Water Use (All Water Sources) (kgal)'].mean())
+csdf_clean_water= csdf[['Water Use (All Water Sources) (kgal)', 'Department']].fillna(csdf['Water Use (All Water Sources) (kgal)'].mean())
 
 #Mean, Median, mode of all data
-print "Mean with outliers", csdfclean.mean()
-print "Median with outliers", csdfclean.median()
-print "Mode with outliers", csdfclean.mode()
+print "Mean with outliers", csdf_clean_water.mean()
+print "Median with outliers", csdf_clean_water.median()
+print "Mode with outliers", csdf_clean_water.mode()
 
 #List of top 5 departments in terms of number of buildings
 uniquedept = dict()
@@ -33,64 +25,100 @@ for index, row in csdf.iterrows():
 	else:
 		uniquedept[row['Department']]=1 
 top5dept = sorted(uniquedept.items(), key=lambda x:x[1], reverse = True)[0:5]
-
+	
 #Box plot for all buldings
-plt.boxplot(csdfclean)
+plt.boxplot(csdf_clean_water['Water Use (All Water Sources) (kgal)'])
+plt.show()
+#Without outliers, zoomed in
+plt.boxplot(csdf_clean_water['Water Use (All Water Sources) (kgal)'],0,'') 
 plt.show()
 
 #Box plots for top 5 dept
-csdf_top5=pd.DataFrame(columns=[dept[0] for dept in top5dept])
-
-for index, row in csdf.iterrows():
+csdf_top5_water=pd.DataFrame(columns=[dept[0] for dept in top5dept])
+for index, row in csdf_clean_water.iterrows():
 	if row.Department in [dept[0] for dept in top5dept]:
-		#Poor approach. Can be more efficient
-		csdf_top5=csdf_top5.append({row['Department']:row['Water Use (All Water Sources) (kgal)']}, ignore_index=True)
+		csdf_top5_water=csdf_top5_water.append({row['Department']:row['Water Use (All Water Sources) (kgal)']}, ignore_index=True)
 
-plt.boxplot([csdf_top5['CAL TRANS'].dropna(), csdf_top5['CAL FIRE'].dropna(), csdf_top5['DPR'].dropna(), csdf_top5['CHP'].dropna(), csdf_top5['CMD'].dropna()])
+plt.boxplot([csdf_top5_water['CAL TRANS'].dropna(), csdf_top5_water['CAL FIRE'].dropna(), csdf_top5_water['DPR'].dropna(), csdf_top5_water['CHP'].dropna(), csdf_top5_water['CMD'].dropna()])
 plt.show()
 
 #Ignoring outliers, preprocessing with upper limit = q3 + (1.5*qir), lower limit = q1 - (1.5*qir)
-q3=csdfclean.quantile(0.75)
-q1=csdfclean.quantile(0.25)
+q3=csdf_clean_water['Water Use (All Water Sources) (kgal)'].quantile(0.75)
+q1=csdf_clean_water['Water Use (All Water Sources) (kgal)'].quantile(0.25)
 
 # Mean, Median, mode of datawithout outiers
-print "Mean without outliers", statistics.mean([x for x in csdfclean if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
-print "Median without outliers", statistics.median([x for x in csdfclean if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
-print "Mode without outliers", statistics.mode([x for x in csdfclean if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
+print "Mean without outliers", statistics.mean([x for x in csdf_clean_water['Water Use (All Water Sources) (kgal)'] if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
+print "Median without outliers", statistics.median([x for x in csdf_clean_water['Water Use (All Water Sources) (kgal)'] if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
+print "Mode without outliers", statistics.mode([x for x in csdf_clean_water['Water Use (All Water Sources) (kgal)'] if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
 
 
 
 #####################################
 ####2. Resource usage correlation####
 #####################################
+csdf_clean_elec = csdf[['Electricity Use (kWh)', 'Department']].fillna(csdf['Electricity Use (kWh)'].mean())
 
-#Scatter plot between electricity and water usage TODO: how does plot deal with NaN values
-plt.scatter(csdf['Water Use (All Water Sources) (kgal)'], csdf['Electricity Use (kWh)'], c=np.random.rand(len(csdf.index)))
+#Scatter plot between electricity and water usage
+plt.scatter(csdf_clean_water['Water Use (All Water Sources) (kgal)'], csdf_clean_elec['Electricity Use (kWh)'], c=np.random.rand(len(csdf.index)))
 plt.show()
 
 #Persons correlation
-print "Persons correlation bw electricitiy and water usage ", csdf[['Water Use (All Water Sources) (kgal)', 'Electricity Use (kWh)']].corr(method='pearson')
+print "Persons correlation bw electricitiy and water usage ", stats.pearsonr(csdf_clean_water['Water Use (All Water Sources) (kgal)'], csdf_clean_elec['Electricity Use (kWh)'])
+
 
 #For the top five dept
-#TODO
+csdf_top5_elec=pd.DataFrame(columns=[dept[0] for dept in top5dept])
+for index, row in csdf_clean_elec.iterrows():
+	if row.Department in [dept[0] for dept in top5dept]:
+		csdf_top5_elec=csdf_top5_elec.append({row['Department']:row['Electricity Use (kWh)']}, ignore_index=True)
 
+#TODO: Not working
+# plt.scatter(csdf_top5_water['CAL TRANS'], csdf_top5_elec['CAL TRANS'], c=np.random.rand(len(csdf_top5_water.index)))
+# plt.show()
+# print "Persons correlation bw electricitiy and water usage for CAL TRANS", stats.pearsonr(csdf_top5_water['CAL TRANS'], csdf_top5_elec['CAL TRANS'])
+
+# plt.scatter(csdf_top5_water['CAL FIRE'], csdf_top5_elec['CAL FIRE'], c=np.random.rand(len(csdf_top5_water.index)))
+# plt.show()
+# print "Persons correlation bw electricitiy and water usage for CAL FIRE", stats.pearsonr(csdf_top5_water['CAL FIRE'], csdf_top5_elec['CAL FIRE'])
 
 
 # ################################
 # ####3. Building similarities####
 # ################################
-
-# Similarities: Euclidian, Manahattan, Cosine
-# Variabes of interest include 
-# 	Resource usage: electricity use(kwh), natural gas use(therms), propane use(kbtu), water use(kgal), site energy use (kbtu)
-# 	Property variables: dept name, city, primary property type, area
-# 	Both together
-
 #List of attributes
 list(csdf.columns.values)
 
-#Slice of row whose property name matches query
-mendota_main_st = csdf.loc[csdf['Property Name']=='MENDOTA MAINTENANCE STATION']
-metro_state_hosp = csdf.loc[csdf['Property Name']=='METROPOLITAN STATE HOSPITAL']
-long_beach_foffice = csdf.loc[csdf['Property Name']=='LONG BEACH FIELD OFFICE']
+#Clean electricity, natural gas, propane, water, site energy use
+csdf_clean_elec=csdf[['Property Name', 'Electricity Use (kWh)']].fillna(csdf['Electricity Use (kWh)'].mean())
+csdf_clean_water=csdf['Water Use (All Water Sources) (kgal)'].fillna(csdf['Water Use (All Water Sources) (kgal)'].mean())
+csdf_clean_naturalgas = csdf['Natural Gas Use (therms)'].fillna(csdf['Natural Gas Use (therms)'].mean())
+csdf_clean_propane = csdf['Propane Use (kBtu)'].fillna(csdf['Propane Use (kBtu)'].mean())
+csdf_clean_siteenergy=csdf['Site Energy Use (kBtu)'].fillna(csdf['Site Energy Use (kBtu)'].mean())
 
+#Combine all clean usage data into one df
+csdf_clean_totalresusage=pd.concat([csdf_clean_elec, csdf_clean_water, csdf_clean_naturalgas, csdf_clean_propane, csdf_clean_siteenergy], axis=1)
+
+#Slice of row whose property name matches query
+mendota_main_st = csdf_clean_totalresusage.loc[csdf['Property Name']=='MENDOTA MAINTENANCE STATION']
+metro_state_hosp = csdf_clean_totalresusage.loc[csdf['Property Name']=='METROPOLITAN STATE HOSPITAL']
+long_beach_foffice = csdf_clean_totalresusage.loc[csdf['Property Name']=='LONG BEACH FIELD OFFICE']
+
+#Mendota
+sorted([[spatial.distance.cosine(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
+sorted([[spatial.distance.euclidean(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
+sorted([[spatial.distance.cityblock(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
+
+#Metro
+sorted([[spatial.distance.cosine(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
+sorted([[spatial.distance.euclidean(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
+sorted([[spatial.distance.cityblock(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
+
+#Long beach
+sorted([[spatial.distance.cosine(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
+sorted([[spatial.distance.euclidean(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
+sorted([[spatial.distance.cityblock(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[1:4]
+
+#Department name, city, primary property type, property area
+len(set(csdf['Department Name']))
+len(set(csdf['Primary Property Type ']))
+len(set(csdf['City']))
