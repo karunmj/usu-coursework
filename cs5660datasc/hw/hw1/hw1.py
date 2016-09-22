@@ -1,5 +1,4 @@
-#TODO: nicer plots, scatteplots for top5, prop var conversion, which norm better
-
+#TODO: nicer plots, scatteplots for top5
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -48,7 +47,7 @@ plt.show()
 q3=csdf_clean_water['Water Use (All Water Sources) (kgal)'].quantile(0.75)
 q1=csdf_clean_water['Water Use (All Water Sources) (kgal)'].quantile(0.25)
 
-## Mean, Median, mode of datawithout outiers
+## Mean, Median, mode of data without outiers
 print "Mean without outliers", statistics.mean([x for x in csdf_clean_water['Water Use (All Water Sources) (kgal)'] if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
 print "Median without outliers", statistics.median([x for x in csdf_clean_water['Water Use (All Water Sources) (kgal)'] if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
 print "Mode without outliers", statistics.mode([x for x in csdf_clean_water['Water Use (All Water Sources) (kgal)'] if x>(q1-1.5*(q3-q1)) and x<(q3+1.5*(q3-q1))])
@@ -87,10 +86,9 @@ for index, row in csdf_clean_elec.iterrows():
 # ################################
 # ####3. Building similarities####
 # ################################
-#List of attributes
-list(csdf.columns.values)
+#helpful checks = list(csdf.columns.values); [x for x in cities.isnull() if x==True]
 
-##Clean electricity, natural gas, propane, water, site energy use
+##Electricity, natural gas, propane, water, site energy use
 csdf_clean_elec=csdf[['Property Name', 'Electricity Use (kWh)']].fillna(csdf['Electricity Use (kWh)'].mean())
 csdf_clean_water=csdf['Water Use (All Water Sources) (kgal)'].fillna(csdf['Water Use (All Water Sources) (kgal)'].mean())
 csdf_clean_naturalgas = csdf['Natural Gas Use (therms)'].fillna(csdf['Natural Gas Use (therms)'].mean())
@@ -110,34 +108,79 @@ print "Mendota res cosine ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([
 print "Mendota res euclidian ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.euclidean(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.euclidean(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
 print "Mendota res manhattan ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.cityblock(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cityblock(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
 
-# #Metro
+#Metro
 print "Metro res cosine ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.cosine(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cosine(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
 print "Metro res euclidian ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.euclidean(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.euclidean(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
 print "Metro res manhattan ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.cityblock(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cityblock(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
 
-# #Long beach
+#Long beach
 print "Long beach res cosine ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.cosine(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cosine(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
 print "Long beach res euclidian ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.euclidean(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.euclidean(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
 print "Long beach res manhattan ", csdf_clean_totalresusage.ix[[x[1] for x in sorted([[spatial.distance.cityblock(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cityblock(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_totalresusage.ix[:,1:].iterrows()])[0:4] 
 
 ##Department name, city, primary property type, property area
-#TODO: mapping function to convert nominal to quant metric
-len(set(csdf['Department Name']))
-len(set(csdf['Primary Property Type ']))
-len(set(csdf['City']))
+#Preprocessing involves regarding cities of any case(L/U) with same text as same. They are then converted to quant type by just assigning an integer to every unique city
+csdf_clean_proparea=csdf[['Property Name', 'Property Area(ft\xc2\xb2)']].fillna(csdf['Property Area(ft\xc2\xb2)'].mean())
 
-# for index, row in csdf_clean_elec.iterrows():
-# 	print index
+cities=csdf.City
+uniquecities=list(set(cities.str.lower())) 
+uniquecitiesdict = {row:index for index,row in enumerate(uniquecities)}
+csdf_clean_city = pd.DataFrame({'cities':[uniquecitiesdict[row.lower()] for index,row in cities.iteritems()]})
 
-csdf_clean_deptname = csdf[['Property Name', 'Electricity Use (kWh)']]
-csdf_clean_city = csdf['City']
-csdf_clean_proptype= csdf['Primary Property Type ']
-csdf_clean_proparea = csdf['Property Area(ft\xc2\xb2)'].fillna(csdf['Property Area(ft\xc2\xb2)'].mean())
+deptnames=csdf.Department
+uniquedeptnames=list(set(deptnames.str.lower())) 
+uniquedeptnamesdict = {row:index for index,row in enumerate(uniquedeptnames)}
+csdf_clean_deptname = pd.DataFrame({'deptnames':[uniquedeptnamesdict[row.lower()] for index,row in deptnames.iteritems()]})
 
-csdf_clean_propvar = pd.concat([csdf_clean_deptname, csdf_clean_city, csdf_clean_proptype, csdf_clean_proparea], axis=1)
+proptype=csdf['Primary Property Type ']
+uniqueproptype=list(set(proptype.str.lower())) 
+uniqueproptypedict = {row:index for index,row in enumerate(uniqueproptype)}
+csdf_clean_proptype = pd.DataFrame({'proptype':[uniqueproptypedict[row.lower()] for index,row in proptype.iteritems()]})
+
+csdf_clean_propvar = pd.concat([csdf_clean_proparea, csdf_clean_deptname, csdf_clean_city, csdf_clean_proptype], axis=1)
+
+mendota_main_st = csdf_clean_propvar.loc[csdf['Property Name']=='MENDOTA MAINTENANCE STATION']
+metro_state_hosp = csdf_clean_propvar.loc[csdf['Property Name']=='METROPOLITAN STATE HOSPITAL']
+long_beach_foffice = csdf_clean_propvar.loc[csdf['Property Name']=='LONG BEACH FIELD OFFICE']
+
+#Mendota
+print "Mendota res cosine ", csdf_clean_propvar.ix[[x[1] for x in sorted([[spatial.distance.cosine(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cosine(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4] 
+print "Mendota res euclidian ", csdf_clean_propvar.ix[[x[1] for x in sorted([[spatial.distance.euclidean(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.euclidean(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4] 
+print "Mendota res manhattan ", csdf_clean_propvar.ix[[x[1] for x in sorted([[spatial.distance.cityblock(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cityblock(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4] 
+
+#Metro
+print "Metro res cosine ", csdf_clean_propvar.ix[[x[1] for x in sorted([[spatial.distance.cosine(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cosine(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4] 
+print "Metro res euclidian ", csdf_clean_propvar.ix[[x[1] for x in sorted([[spatial.distance.euclidean(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.euclidean(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4] 
+print "Metro res manhattan ", csdf_clean_propvar.ix[[x[1] for x in sorted([[spatial.distance.cityblock(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cityblock(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4] 
+
+#Long beach
+print "Long beach res cosine ", csdf_clean_propvar.ix[[x[1] for x in sorted([[spatial.distance.cosine(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cosine(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4] 
+print "Long beach res euclidian ", csdf_clean_propvar.ix[[x[1] for x in sorted([[spatial.distance.euclidean(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.euclidean(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4] 
+print "Long beach res manhattan ", csdf_clean_propvar.ix[[x[1] for x in sorted([[spatial.distance.cityblock(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cityblock(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_propvar.ix[:,1:].iterrows()])[0:4] 
 
 
 
+#Electricity, natural gas, propane, water, site energy use, Department name, city, primary property type, property area
 
+csdf_clean_proparea=csdf['Property Area(ft\xc2\xb2)'].fillna(csdf['Property Area(ft\xc2\xb2)'].mean())
 
+csdf_clean_combvar = pd.concat([csdf_clean_elec, csdf_clean_water, csdf_clean_naturalgas, csdf_clean_propane, csdf_clean_siteenergy, csdf_clean_proparea, csdf_clean_deptname, csdf_clean_city, csdf_clean_proptype], axis=1)
 
+mendota_main_st = csdf_clean_combvar.loc[csdf['Property Name']=='MENDOTA MAINTENANCE STATION']
+metro_state_hosp = csdf_clean_combvar.loc[csdf['Property Name']=='METROPOLITAN STATE HOSPITAL']
+long_beach_foffice = csdf_clean_combvar.loc[csdf['Property Name']=='LONG BEACH FIELD OFFICE']
+
+#Mendota
+print "Mendota res cosine ", csdf_clean_combvar.ix[[x[1] for x in sorted([[spatial.distance.cosine(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cosine(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4] 
+print "Mendota res euclidian ", csdf_clean_combvar.ix[[x[1] for x in sorted([[spatial.distance.euclidean(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.euclidean(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4] 
+print "Mendota res manhattan ", csdf_clean_combvar.ix[[x[1] for x in sorted([[spatial.distance.cityblock(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cityblock(mendota_main_st.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4] 
+
+#Metro
+print "Metro res cosine ", csdf_clean_combvar.ix[[x[1] for x in sorted([[spatial.distance.cosine(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cosine(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4] 
+print "Metro res euclidian ", csdf_clean_combvar.ix[[x[1] for x in sorted([[spatial.distance.euclidean(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.euclidean(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4] 
+print "Metro res manhattan ", csdf_clean_combvar.ix[[x[1] for x in sorted([[spatial.distance.cityblock(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cityblock(metro_state_hosp.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4] 
+
+#Long beach
+print "Long beach res cosine ", csdf_clean_combvar.ix[[x[1] for x in sorted([[spatial.distance.cosine(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cosine(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4] 
+print "Long beach res euclidian ", csdf_clean_combvar.ix[[x[1] for x in sorted([[spatial.distance.euclidean(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.euclidean(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4] 
+print "Long beach res manhattan ", csdf_clean_combvar.ix[[x[1] for x in sorted([[spatial.distance.cityblock(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4]],0], " : ",sorted([[spatial.distance.cityblock(long_beach_foffice.ix[:,1:],row),index] for index,row in csdf_clean_combvar.ix[:,1:].iterrows()])[0:4] 
