@@ -1,0 +1,4 @@
+200809251417   0     0     0dtarb C:\rain\alloc2 = SHAPEGRID(C:\rain\rcout.shp, #, 30)
+200809251417   0     0     0dtarb C:\rain\alloc5 = SHAPEGRID(C:\rain\rcout.shp, #, 30)
+200809251417   0     0     0dtarb C:\rain\alloc4 = EUCALLOCATION(C:\rain\alloc3,  #, #, #)
+201609241223   0     0     0A02240287 C:\Users\labuser\Downloads\cee6400hw1\rain\cont100 = CONTOUR(C:\Users\labuser\Downloads\cee6400hw1\rain\reydem,  INTERVAL, 100.0
