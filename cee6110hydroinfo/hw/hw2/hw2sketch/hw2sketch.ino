@@ -47,7 +47,7 @@ void setup(){
   else{
    Serial.println("SD card initialization successful!");
   }
-  File myFile = SD.open("hw1-2.txt", FILE_WRITE);
+  File myFile = SD.open("hw1-3.txt", FILE_WRITE);
   myFile.println("RecordNumber,ElapsedTime(us),Humidity,Temperature");
   myFile.close();
   
@@ -57,7 +57,7 @@ void setup(){
 
 void loop(){
   //Open txt file to write sensors variabes
-  File myFile = SD.open("hw1-2.txt", FILE_WRITE);
+  File myFile = SD.open("hw1-3.txt", FILE_WRITE);
   
   // Get the current time (number of microseconds since the program started)
   currMillis = millis();
