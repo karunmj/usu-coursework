@@ -62,7 +62,7 @@ abline(v=4,col="green")
 abline(v=10,col="red")
 abline(v=20,col="blue")
 abline(v=50,col="yellow")
-onehrintf = c(1.4, 1.8, 2.1, 2.3)  #Crude approx by just by eye 
+onecol=predict(fitonehrint,newdata = data.frame(epp=c(50,20,10,4)))
 
 plot(epp,sixhrint,log = "xy")
 fitsixhrint = lm((sixhrint)~(epp)) 
@@ -71,7 +71,7 @@ abline(v=4,col="green")
 abline(v=10,col="red")
 abline(v=20,col="blue")
 abline(v=50,col="yellow")
-#sixhrintf = c(0.42, 0.61, 0.68, )
+sixcol=predict(fitsixhrint,newdata = data.frame(epp=c(50,20,10,4)))
 
 plot(epp, twofourhrint,log = "xy")
 fittwofourhrint = lm((twofourhrint)~(epp)) 
@@ -80,7 +80,8 @@ abline(v=4,col="green")
 abline(v=10,col="red")
 abline(v=20,col="blue")
 abline(v=50,col="yellow")
-twofourhrintf = c()
+twofourcol=predict(fittwofourhrint,newdata = data.frame(epp=c(50,20,10,4)))
 
 #Plot intensity duration frequency
-
+rp = c(2, 5, 10, 25)
+intdurfreq = data.frame(rp,onecol,sixcol,twofourcol)
