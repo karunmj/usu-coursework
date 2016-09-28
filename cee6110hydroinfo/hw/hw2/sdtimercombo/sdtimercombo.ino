@@ -22,10 +22,7 @@ Karun Joseph, A02240287
 // Initialize DHT sensor using pin and sensor type
 DHT dht(DHTPin, DHTTYPE);
 
-// Declare timing variables
-char comphour[20]
-char ompminute[20]
-char compsecond[20]
+
 
 int scanInterval = 5;   // Time between scans within the main loop in seconds
 int recordInterval = 10; // Time between recorded values in seconds
@@ -63,7 +60,6 @@ void setup(){
   // Begin communication with the DHT sensor
   dht.begin();
 
-  pinMode(13, OUTPUT);
   setSyncProvider( requestSync);  //set function to call when sync required
 }
 
@@ -73,7 +69,7 @@ void loop(){
     
   }
   if (timeStatus()!= timeNotSet) {
-    digitalClockDisplay();  
+    String comptime = String(hour())+":"+String(minute())+":"+String(second());
   }
   
   //Open txt file to write sensors variabes
@@ -113,7 +109,7 @@ void loop(){
       recordCounter ++;
       
       // Create a string to record the output data to the serial port and write to sd card
-      String recordToPrint = String(recordCounter) + "," + String(currMicros) + "," + String(HumAvg) + "," + String(TempAvg);
+      String recordToPrint = String(recordCounter) + "," + String(currMicros) + "," + comptime + "," + String(HumAvg) + "," + String(TempAvg);
       Serial.println(recordToPrint);
       myFile.println(recordToPrint);
       
@@ -126,23 +122,6 @@ void loop(){
   } 
   myFile.close();
 }
-
-
-void digitalClockDisplay(){
-  // digital clock display of the time
-  Serial.print(hour());
-  comphour = hour()
-  Serial.print(":");
-  if(minute() < 10)
-    Serial.print('0');
-  Serial.print(minute());
-  Serial.print(":");
-  if(second() < 10)
-    Serial.print('0');
-  Serial.print(second());
-  
-}
-
 
 void processSyncMessage() {
   unsigned long pctime;

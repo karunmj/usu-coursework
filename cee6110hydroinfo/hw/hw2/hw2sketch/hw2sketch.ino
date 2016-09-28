@@ -18,8 +18,8 @@ Karun Joseph, A02240287
 DHT dht(DHTPin, DHTTYPE);
 
 // Declare timing variables
-int scanInterval = 5;   // Time between scans within the main loop in seconds
-int recordInterval = 10; // Time between recorded values in seconds
+int scanInterval = 1;   // Time between scans within the main loop in seconds
+int recordInterval = 60; // Time between recorded values in seconds
 unsigned long currMillis = 0;       // Timing variable
 unsigned long prevMillis = 0;       // Timing variable
 unsigned long prevRecordMillis = 0; // Timing variable
