@@ -7,6 +7,11 @@ Karun Joseph, A02240287
 // Include DHT sensor, SD library
 #include <DHT.h>
 #include <SD.h>
+#include <TimeLib.h>
+
+#define TIME_HEADER  "T"   // Header tag for serial time sync message
+#define TIME_REQUEST  7    // ASCII bell character requests a time sync message 
+
 
 // Define DHT sensor digital pin to 2
 #define DHTPin 2 
@@ -18,11 +23,15 @@ Karun Joseph, A02240287
 DHT dht(DHTPin, DHTTYPE);
 
 // Declare timing variables
+char comphour[20]
+char ompminute[20]
+char compsecond[20]
+
 int scanInterval = 5;   // Time between scans within the main loop in seconds
 int recordInterval = 10; // Time between recorded values in seconds
-unsigned long currMillis = 0;       // Timing variable
-unsigned long prevMillis = 0;       // Timing variable
-unsigned long prevRecordMillis = 0; // Timing variable
+unsigned long currMicros = 0;       // Timing variable
+unsigned long prevMicros = 0;       // Timing variable
+unsigned long prevRecordMicros = 0; // Timing variable
 int scanCounter = 0;   // A variable to hold a count of scans
 int recordCounter = 0; // A variable to hold a count of output records
 
@@ -47,23 +56,34 @@ void setup(){
   else{
    Serial.println("SD card initialization successful!");
   }
-  File myFile = SD.open("hw1-2.txt", FILE_WRITE);
+  File myFile = SD.open("hw1-1.txt", FILE_WRITE);
   myFile.println("RecordNumber,ElapsedTime(us),Humidity,Temperature");
   myFile.close();
   
   // Begin communication with the DHT sensor
   dht.begin();
+
+  pinMode(13, OUTPUT);
+  setSyncProvider( requestSync);  //set function to call when sync required
 }
 
 void loop(){
+  if (Serial.available()) {
+    processSyncMessage();
+    
+  }
+  if (timeStatus()!= timeNotSet) {
+    digitalClockDisplay();  
+  }
+  
   //Open txt file to write sensors variabes
-  File myFile = SD.open("hw1-2.txt", FILE_WRITE);
+  File myFile = SD.open("hw1-1.txt", FILE_WRITE);
   
   // Get the current time (number of microseconds since the program started)
-  currMillis = millis();
+  currMicros = micros();
 
   // Check timing to see if the scan interval has been reached
-  if ((currMillis - prevMillis) >= (scanInterval * 1000))
+  if ((currMicros - prevMicros) >= (scanInterval * 1000000))
   {
     // If YES, do a scan
     // -----------------  
@@ -78,14 +98,14 @@ void loop(){
     TempSum += degC;
     
     // Create a string with output for this scan to print to the serial port
-    String stringToPrint = String(scanCounter) + "," + String(currMillis/1000) + "," + hum + "," + degC;
+    String stringToPrint = String(scanCounter) + "," + String(currMicros) + "," + hum + "," + degC;
     Serial.println(stringToPrint);
 
     // Manage the timing variables to reflect that I just finished a scan
-    prevMillis = currMillis;
+    prevMicros = currMicros;
 
     // Check to see if it's time to record data
-    if ((currMillis - prevRecordMillis) >= (recordInterval * 1000))
+    if ((currMicros - prevRecordMicros) >= (recordInterval * 1000000))
     {
       HumAvg = HumSum / scanCounter;
       TempAvg = TempSum / scanCounter;
@@ -93,12 +113,12 @@ void loop(){
       recordCounter ++;
       
       // Create a string to record the output data to the serial port and write to sd card
-      String recordToPrint = String(recordCounter) + "," + String(currMillis/1000) + "," + String(HumAvg) + "," + String(TempAvg);
+      String recordToPrint = String(recordCounter) + "," + String(currMicros) + "," + String(HumAvg) + "," + String(TempAvg);
       Serial.println(recordToPrint);
       myFile.println(recordToPrint);
       
       // Manage to timing variables to reflect that I just recorded data and reset the scanCounter and randomSum variables for the next scan
-      prevRecordMillis = currMillis;
+      prevRecordMicros = currMicros;
       scanCounter = 0;
       HumSum = 0;
       TempSum=0;
@@ -106,3 +126,40 @@ void loop(){
   } 
   myFile.close();
 }
+
+
+void digitalClockDisplay(){
+  // digital clock display of the time
+  Serial.print(hour());
+  comphour = hour()
+  Serial.print(":");
+  if(minute() < 10)
+    Serial.print('0');
+  Serial.print(minute());
+  Serial.print(":");
+  if(second() < 10)
+    Serial.print('0');
+  Serial.print(second());
+  
+}
+
+
+void processSyncMessage() {
+  unsigned long pctime;
+  const unsigned long DEFAULT_TIME = 1357041600; // Jan 1 2013
+
+  if(Serial.find(TIME_HEADER)) {
+     pctime = Serial.parseInt();
+     if( pctime >= DEFAULT_TIME) { // check the integer is a valid time (greater than Jan 1 2013)
+       setTime(pctime); // Sync Arduino clock to the time received on the serial port
+     }
+  }
+}
+
+time_t requestSync()
+{
+  Serial.write(TIME_REQUEST);  
+  return 0; // the time will be sent later in response to serial mesg
+}
+
+
