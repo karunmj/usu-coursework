@@ -39,7 +39,7 @@ Cnew=c(C[1:5]*k,C[6:17])
 
 
 ##3. Depth duration to Intensity duration frequency problem
-#Creating data frame of given data
+#Creating data frame of given data, from depth to intensity
 rrank=c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24)
 ep=c(0.04,0.08,0.12,0.16,0.20,0.24,0.28,0.32,0.36,0.40,0.44,0.48,0.52,0.56,0.60,0.64,0.68,0.72,0.76,0.80,0.84,0.88,0.92,0.96)
 
@@ -55,19 +55,32 @@ twofourhrint = twofourhr/24
 #Plot intensity vs exceedence probability perc
 epp=ep*100
 
-plot(epp,onehrint,log = "xy")
-plot(epp,sixhrint,log = "xy")
-plot(epp, twofourhrint,log = "xy")
-
+plot(epp,onehrint, log ="xy")
 fitonehrint = lm((onehrint)~(epp)) 
-fitsixhrint = lm(log(sixhrint)~log(epp)) 
-fittwofourhrint = lm(log(twofourhrint)~log(epp)) 
+abline(fitonehrint,untf=TRUE)
+abline(v=4,col="green")
+abline(v=10,col="red")
+abline(v=20,col="blue")
+abline(v=50,col="yellow")
+onehrintf = c(1.4, 1.8, 2.1, 2.3)  #Crude approx by just by eye 
 
+plot(epp,sixhrint,log = "xy")
+fitsixhrint = lm((sixhrint)~(epp)) 
+abline(fitsixhrint, untf = TRUE)
+abline(v=4,col="green")
+abline(v=10,col="red")
+abline(v=20,col="blue")
+abline(v=50,col="yellow")
+#sixhrintf = c(0.42, 0.61, 0.68, )
 
-#abline(fitonehr)
+plot(epp, twofourhrint,log = "xy")
+fittwofourhrint = lm((twofourhrint)~(epp)) 
+abline(fittwofourhrint, untf = TRUE)
+abline(v=4,col="green")
+abline(v=10,col="red")
+abline(v=20,col="blue")
+abline(v=50,col="yellow")
+twofourhrintf = c()
 
-plot(epp,sixhr,log = "xy")
-plot(epp,twofourhr,log = "xy")
-
-#Converting depth to intensity
+#Plot intensity duration frequency
 
