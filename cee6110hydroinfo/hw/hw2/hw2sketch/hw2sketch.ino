@@ -59,7 +59,7 @@ void loop(){
   //Open txt file to write sensors variabes
   File myFile = SD.open("hw1-3.txt", FILE_WRITE);
   
-  // Get the current time (number of microseconds since the program started)
+  //Current time is set in millis instead of micros to prevent rolloever. Millis would last ~40 days but micros only 70 min
   currMillis = millis();
 
   // Check timing to see if the scan interval has been reached
