@@ -41,4 +41,9 @@ print circle_df.head()
 #preprocessing - nicer format 'duration', 'duration' to seconds
 
 
+#Population data from US census
+population_api = requests.get('http://api.census.gov/data/2015/acs1/cprofile?get=CP05_2015_001E,NAME&for=state:*')
+population = population_api.text
+print population
+
 
