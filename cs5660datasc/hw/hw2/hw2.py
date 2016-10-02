@@ -13,26 +13,51 @@ import pickle
 
 ###data collection, pre processing, exploratory analysis
 
-##circles##
-
+##circle, triangle, fireball data scraping, pickling
 
 '''
 #data scraping
 circle_url = 'http://www.nuforc.org/webreports/ndxsCircle.html'
 circle_req = requests.get(circle_url)
-circle_soup = BeautifulSoup(circle_r.text)
+circle_soup = BeautifulSoup(circle_req.text,'html.parser')
+
+triangle_url = 'http://www.nuforc.org/webreports/ndxsTriangle.html'
+triangle_req = requests.get(triangle_url)
+triangle_soup = BeautifulSoup(triangle_req.text,'html.parser')
+
+fireball_url = 'http://www.nuforc.org/webreports/ndxsFireball.html'
+fireball_req = requests.get(fireball_url)
+fireball_soup = BeautifulSoup(fireball_req.text,'html.parser')
 
 #data timeframe formatting
 circle_column_headers = [x.getText() for x in circle_soup.findAll('tr', limit=1)[0].findAll('th')]
 circle_tr_rows = circle_soup.findAll('tr')[1:]
 circle_table = [[x.getText() for x in row.findAll('td')] for row in circle_tr_rows]
 circle_df = pd.DataFrame(circle_table, columns=circle_column_headers)
-pickle.dump(circle_df, open("circle_df.p", "wb"))
 
+triangle_column_headers = [x.getText() for x in triangle_soup.findAll('tr', limit=1)[0].findAll('th')]
+triangle_tr_rows = triangle_soup.findAll('tr')[1:]
+triangle_table = [[x.getText() for x in row.findAll('td')] for row in triangle_tr_rows]
+triangle_df = pd.DataFrame(triangle_table, columns=triangle_column_headers)
+
+fireball_column_headers = [x.getText() for x in fireball_soup.findAll('tr', limit=1)[0].findAll('th')]
+fireball_tr_rows = fireball_soup.findAll('tr')[1:]
+fireball_table = [[x.getText() for x in row.findAll('td')] for row in fireball_tr_rows]
+fireball_df = pd.DataFrame(fireball_table, columns=fireball_column_headers)
+
+pickle.dump(circle_df, open("circle_df.p", "wb"))
+pickle.dump(triangle_df, open("triangle_df.p", "wb"))
+pickle.dump(fireball_df, open("fireball_df.p", "wb"))
 '''
 
 circle_df = pickle.load(open("circle_df.p", "rb"))
+triangle_df = pickle.load(open("triangle_df.p", "rb"))
+fireball_df = pickle.load(open("fireball_df.p", "rb"))
+
 print circle_df.head()
+print triangle_df.head()
+print fireball_df.head()
+
 
 #TODO: split 'Date/ Time' column to 2 columns 'Date' and 'Time'
 
