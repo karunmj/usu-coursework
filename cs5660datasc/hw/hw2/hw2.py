@@ -3,6 +3,8 @@ questions:
 	sightings only till 9/21/2016 (inlcuding)
 	locations outside US and Canada? For pre processing exclude them by: if state field is empty?
 	deal with duration? For just first 100 records (~/10812), there are 'Still happening', '22:00', 'few minutes', 'several minutes', 'brief', '~1 hour', 'route 6', 'north close to the firing', 'Few seconds'
+	bar chart of sightings per state: is it cir, tr, fire summed or separate?
+
 '''
 
 import requests
@@ -105,7 +107,15 @@ fireball_df['Time of sighting'] = fireball_time_sighting
 
 #preprocessing - nicer format 'duration', 'duration' to seconds
 
+##box plot of duration
 
+##time series pot of number of sightings
+
+##bar chart of sightings
+
+##normalizing by state population
 #Population data from US census
 population_api = requests.get('http://api.census.gov/data/2015/acs1/cprofile?get=CP05_2015_001E,NAME&for=state:*')
 population = population_api.text
+
+
