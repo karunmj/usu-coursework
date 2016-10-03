@@ -9,7 +9,8 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import pickle 
-
+import datetime
+import parser
 
 ###data collection, pre processing, exploratory analysis
 
@@ -85,11 +86,22 @@ fireball_date_sighting,fireball_time_sighting=zip(*[(x[0], x[1]) for x in [datet
 fireball_df['Date of sighting'] = fireball_date_sighting
 fireball_df['Time of sighting'] = fireball_time_sighting
 
-print circle_df.head()
-print triangle_df.head()
-print triangle_df.head()
+# print circle_df.head()
+# print triangle_df.head()
+# print fireball_df.head()
 
-#preprocessing - inlcude sightings only bw 1/1/2005 and 9/22/2016
+# #preprocessing - inlcude sightings only bw 1/1/2005 and 9/22/2016
+# for index, row in circle_df.iterrows():
+#     try:
+#         datetimesighting = parser.parse(row['Date / Time'])
+#         print datetimesighting
+#         # print "this ran"
+#         # if (datetime.date(2005, 1, 1) <= datetimesighting <= datetime.date(2015, 9, 22)):
+#         #     print "in range"
+#         # else:
+#         #     print "not in range"
+#     except:
+#     	print "something"
 
 #preprocessing - nicer format 'duration', 'duration' to seconds
 
@@ -97,6 +109,3 @@ print triangle_df.head()
 #Population data from US census
 population_api = requests.get('http://api.census.gov/data/2015/acs1/cprofile?get=CP05_2015_001E,NAME&for=state:*')
 population = population_api.text
-
-
-
