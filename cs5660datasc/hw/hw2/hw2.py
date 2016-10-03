@@ -58,8 +58,19 @@ print circle_df.head()
 print triangle_df.head()
 print fireball_df.head()
 
+#preprocessing: split 'Date/ Time' column to 2 columns 'Date' and 'Time'
+def datetimesplitter(datetimeentry):
+	#Function to split date and time. Some don't have time of sighting, seting them to '00:00'
+	dateentry = datetimeentry[0] 
+	if len(datetimeentry) > 1: 
+		timeentry = datetimeentry[1]
+	else:
+		timeentry = '00:00'
+	return [dateentry, timeentry]
 
-#TODO: split 'Date/ Time' column to 2 columns 'Date' and 'Time'
+[datetimesplitter(x.split(" ")) for x in circle_df['Date / Time']] 
+circle_df['Date_Sighting'] = [0]*len(circle_df.index) #placeholder, to use above result
+circle_df['Time_Sighting'] = [0]*len(circle_df.index) #placeholder, to use above result
 
 #preprocessing - inlcude sightings only bw 1/1/2005 and 9/22/2016
 
