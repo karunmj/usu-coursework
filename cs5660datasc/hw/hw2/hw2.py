@@ -1,6 +1,5 @@
 '''
 questions:
-	sightings only till 9/21/2016 (inlcuding)
 	locations outside US and Canada? For pre processing exclude them by: if state field is empty?
 	deal with duration? For just first 100 records (~/10812), there are 'Still happening', '22:00', 'few minutes', 'several minutes', 'brief', '~1 hour', 'route 6', 'north close to the firing', 'Few seconds'
 	bar chart of sightings per state: is it cir, tr, fire summed or separate?
@@ -17,7 +16,6 @@ from dateutil import parser
 ###data collection, pre processing, exploratory analysis
 
 ##circle, triangle, fireball data scraping, pickling
-
 '''
 #data scraping
 circle_url = 'http://www.nuforc.org/webreports/ndxsCircle.html'
@@ -57,7 +55,8 @@ circle_df = pickle.load(open("circle_df.p", "rb"))
 triangle_df = pickle.load(open("triangle_df.p", "rb"))
 fireball_df = pickle.load(open("fireball_df.p", "rb"))
 
-#preprocessing: split 'Date/ Time' column to 2 columns 'Date' and 'Time'. May not be necessary
+#(may not be necessary)
+# preprocessing - split 'Date/ Time' column to 2 columns 'Date' and 'Time'. 
 # def datetimesplitter(datetimeentry):
 # 	#Function to split date and time. Some don't have time of sighting, seting them to '00:00'
 # 	dateentry = datetimeentry[0] 
@@ -96,17 +95,24 @@ fireball_df['sighting_label'] = ['fireball'] * len(fireball_df.index)
 #combine circle, triangle, fireball dataframe
 allshape_df = circle_df.append([triangle_df, fireball_df], ignore_index=True)
 
-#preprocessing - inlcude sightings only bw 1/1/2005 and 9/22/2016 
-#TODO: not woring yet
+#(slow and ugly, may need alt)
+#preprocessing - include sightings only bw 1/1/2005 and 9/22/2016. New column 'in_range' will be set to 1
+'''
+allshape_df['in range'] = [0]*len(allshape_df.index)
 for index, row in allshape_df.iterrows():
     try:
         datetimesighting = parser.parse(row['Date / Time'])
         if datetime.datetime(2005, 1, 1) <= datetimesighting <= datetime.datetime(2015, 9, 22):
-            print "in range"
+            allshape_df.set_value(index,'in range', 1)
         else:
-            print "not in range"
+            continue
     except:
-    	print "poor formating"
+    	pass
+
+pickle.dump(allshape_df, open("allshape_df.p", "wb"))
+'''
+allshape_df = pickle.load(open("allshape_df.p", "rb"))
+allshape_df_inrange = allshape_df.loc[allshape_df['in range'] == 1] #index is messed up
 
 #preprocessing - nicer format 'duration', 'duration' to seconds
 
