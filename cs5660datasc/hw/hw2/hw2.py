@@ -51,52 +51,15 @@ pickle.dump(triangle_df, open("triangle_df.p", "wb"))
 pickle.dump(fireball_df, open("fireball_df.p", "wb"))
 '''
 
-circle_df = pickle.load(open("circle_df.p", "rb"))
-triangle_df = pickle.load(open("triangle_df.p", "rb"))
-fireball_df = pickle.load(open("fireball_df.p", "rb"))
-
-#(may not be necessary)
-# preprocessing - split 'Date/ Time' column to 2 columns 'Date' and 'Time'. 
-# def datetimesplitter(datetimeentry):
-# 	#Function to split date and time. Some don't have time of sighting, seting them to '00:00'
-# 	dateentry = datetimeentry[0] 
-# 	if len(datetimeentry) > 1: 
-# 		timeentry = datetimeentry[1]
-# 	else:
-# 		timeentry = '00:00'
-# 	return [dateentry, timeentry]
-
-# circle_date_sighting = []
-# circle_time_sighting = []
-
-# triangle_date_sighting = []
-# triangle_time_sighting = []
-
-# fireball_date_sighting = []
-# fireball_time_sighting = []
-
-# circle_date_sighting,circle_time_sighting=zip(*[(x[0], x[1]) for x in [datetimesplitter(x.split(" ")) for x in circle_df['Date / Time']]])
-# circle_df['Date of sighting'] = circle_date_sighting
-# circle_df['Time of sighting'] = circle_time_sighting
-
-# triangle_date_sighting,triangle_time_sighting=zip(*[(x[0], x[1]) for x in [datetimesplitter(x.split(" ")) for x in triangle_df['Date / Time']]])
-# triangle_df['Date of sighting'] = triangle_date_sighting
-# triangle_df['Time of sighting'] = triangle_time_sighting
-
-# fireball_date_sighting,fireball_time_sighting=zip(*[(x[0], x[1]) for x in [datetimesplitter(x.split(" ")) for x in fireball_df['Date / Time']]])
-# fireball_df['Date of sighting'] = fireball_date_sighting
-# fireball_df['Time of sighting'] = fireball_time_sighting
-
-#add circle, triangle, fireball label
-circle_df['sighting_label'] = ['circle'] * len(circle_df.index)
-triangle_df['sighting_label'] = ['triangle'] * len(triangle_df.index)
-fireball_df['sighting_label'] = ['fireball'] * len(fireball_df.index)
+#circle_df = pickle.load(open("circle_df.p", "rb"))
+#triangle_df = pickle.load(open("triangle_df.p", "rb"))
+#fireball_df = pickle.load(open("fireball_df.p", "rb"))
 
 #combine circle, triangle, fireball dataframe
-allshape_df = circle_df.append([triangle_df, fireball_df], ignore_index=True)
+#allshape_df = circle_df.append([triangle_df, fireball_df], ignore_index=True)
 
 #(slow and ugly, may need alt)
-#preprocessing - include sightings only bw 1/1/2005 and 9/22/2016. New column 'in_range' will be set to 1
+#preprocessing - include sightings only bw 1/1/2005 and 9/22/2016. New column 'in_range' will be set to 1 if
 '''
 allshape_df['in range'] = [0]*len(allshape_df.index)
 for index, row in allshape_df.iterrows():
@@ -112,13 +75,17 @@ for index, row in allshape_df.iterrows():
 pickle.dump(allshape_df, open("allshape_df.p", "wb"))
 '''
 allshape_df = pickle.load(open("allshape_df.p", "rb"))
-allshape_df_inrange = allshape_df.loc[allshape_df['in range'] == 1] #index is messed up
+allshape_inrange_df=(pd.DataFrame([row for index, row in allshape_df.iterrows() if row['in range']==1])).reset_index(drop=True)
+allshape_inrange_df['datetime'] =pd.to_datetime(allshape_inrange_df['Date / Time'])
+allshape_inrange_df = (allshape_df_inrange.sort('datetime')).reset_index(drop=True)
 
 #preprocessing - nicer format 'duration', 'duration' to seconds
 
+#preprocessing - take out outside us locations
+
 ##box plot of duration
 
-##time series pot of number of sightings
+##time series plot of number of sightings
 
 ##bar chart of sightings
 
@@ -126,3 +93,7 @@ allshape_df_inrange = allshape_df.loc[allshape_df['in range'] == 1] #index is me
 #Population data from US census
 population_api = requests.get('http://api.census.gov/data/2015/acs1/cprofile?get=CP05_2015_001E,NAME&for=state:*')
 population = population_api.text
+
+###predicting ufo shape
+##preprocessing - state to region
+##preprocessing - time to n, m, af, ev
