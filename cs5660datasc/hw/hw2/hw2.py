@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import pickle 
 import datetime
-import parser
+from dateutil import parser
 
 ###data collection, pre processing, exploratory analysis
 
@@ -57,53 +57,56 @@ circle_df = pickle.load(open("circle_df.p", "rb"))
 triangle_df = pickle.load(open("triangle_df.p", "rb"))
 fireball_df = pickle.load(open("fireball_df.p", "rb"))
 
-#preprocessing: split 'Date/ Time' column to 2 columns 'Date' and 'Time'
-def datetimesplitter(datetimeentry):
-	#Function to split date and time. Some don't have time of sighting, seting them to '00:00'
-	dateentry = datetimeentry[0] 
-	if len(datetimeentry) > 1: 
-		timeentry = datetimeentry[1]
-	else:
-		timeentry = '00:00'
-	return [dateentry, timeentry]
+#preprocessing: split 'Date/ Time' column to 2 columns 'Date' and 'Time'. May not be necessary
+# def datetimesplitter(datetimeentry):
+# 	#Function to split date and time. Some don't have time of sighting, seting them to '00:00'
+# 	dateentry = datetimeentry[0] 
+# 	if len(datetimeentry) > 1: 
+# 		timeentry = datetimeentry[1]
+# 	else:
+# 		timeentry = '00:00'
+# 	return [dateentry, timeentry]
 
-circle_date_sighting = []
-circle_time_sighting = []
+# circle_date_sighting = []
+# circle_time_sighting = []
 
-triangle_date_sighting = []
-triangle_time_sighting = []
+# triangle_date_sighting = []
+# triangle_time_sighting = []
 
-fireball_date_sighting = []
-fireball_time_sighting = []
+# fireball_date_sighting = []
+# fireball_time_sighting = []
 
-circle_date_sighting,circle_time_sighting=zip(*[(x[0], x[1]) for x in [datetimesplitter(x.split(" ")) for x in circle_df['Date / Time']]])
-circle_df['Date of sighting'] = circle_date_sighting
-circle_df['Time of sighting'] = circle_time_sighting
+# circle_date_sighting,circle_time_sighting=zip(*[(x[0], x[1]) for x in [datetimesplitter(x.split(" ")) for x in circle_df['Date / Time']]])
+# circle_df['Date of sighting'] = circle_date_sighting
+# circle_df['Time of sighting'] = circle_time_sighting
 
-triangle_date_sighting,triangle_time_sighting=zip(*[(x[0], x[1]) for x in [datetimesplitter(x.split(" ")) for x in triangle_df['Date / Time']]])
-triangle_df['Date of sighting'] = triangle_date_sighting
-triangle_df['Time of sighting'] = triangle_time_sighting
+# triangle_date_sighting,triangle_time_sighting=zip(*[(x[0], x[1]) for x in [datetimesplitter(x.split(" ")) for x in triangle_df['Date / Time']]])
+# triangle_df['Date of sighting'] = triangle_date_sighting
+# triangle_df['Time of sighting'] = triangle_time_sighting
 
-fireball_date_sighting,fireball_time_sighting=zip(*[(x[0], x[1]) for x in [datetimesplitter(x.split(" ")) for x in fireball_df['Date / Time']]])
-fireball_df['Date of sighting'] = fireball_date_sighting
-fireball_df['Time of sighting'] = fireball_time_sighting
+# fireball_date_sighting,fireball_time_sighting=zip(*[(x[0], x[1]) for x in [datetimesplitter(x.split(" ")) for x in fireball_df['Date / Time']]])
+# fireball_df['Date of sighting'] = fireball_date_sighting
+# fireball_df['Time of sighting'] = fireball_time_sighting
 
-# print circle_df.head()
-# print triangle_df.head()
-# print fireball_df.head()
+#add circle, triangle, fireball label
+circle_df['sighting_label'] = ['circle'] * len(circle_df.index)
+triangle_df['sighting_label'] = ['triangle'] * len(triangle_df.index)
+fireball_df['sighting_label'] = ['fireball'] * len(fireball_df.index)
 
-# #preprocessing - inlcude sightings only bw 1/1/2005 and 9/22/2016
-# for index, row in circle_df.iterrows():
-#     try:
-#         datetimesighting = parser.parse(row['Date / Time'])
-#         print datetimesighting
-#         # print "this ran"
-#         # if (datetime.date(2005, 1, 1) <= datetimesighting <= datetime.date(2015, 9, 22)):
-#         #     print "in range"
-#         # else:
-#         #     print "not in range"
-#     except:
-#     	print "something"
+#combine circle, triangle, fireball dataframe
+allshape_df = circle_df.append([triangle_df, fireball_df], ignore_index=True)
+
+#preprocessing - inlcude sightings only bw 1/1/2005 and 9/22/2016 
+#TODO: not woring yet
+for index, row in allshape_df.iterrows():
+    try:
+        datetimesighting = parser.parse(row['Date / Time'])
+        if datetime.datetime(2005, 1, 1) <= datetimesighting <= datetime.datetime(2015, 9, 22):
+            print "in range"
+        else:
+            print "not in range"
+    except:
+    	print "poor formating"
 
 #preprocessing - nicer format 'duration', 'duration' to seconds
 
@@ -117,5 +120,3 @@ fireball_df['Time of sighting'] = fireball_time_sighting
 #Population data from US census
 population_api = requests.get('http://api.census.gov/data/2015/acs1/cprofile?get=CP05_2015_001E,NAME&for=state:*')
 population = population_api.text
-
-
