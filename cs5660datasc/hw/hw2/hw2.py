@@ -12,6 +12,8 @@ import pandas as pd
 import pickle 
 import datetime
 from dateutil import parser
+import json
+import numpy as np
 
 ###data collection, pre processing, exploratory analysis
 
@@ -49,7 +51,6 @@ fireball_df = pd.DataFrame(fireball_table, columns=fireball_column_headers)
 pickle.dump(circle_df, open("circle_df.p", "wb"))
 pickle.dump(triangle_df, open("triangle_df.p", "wb"))
 pickle.dump(fireball_df, open("fireball_df.p", "wb"))
-'''
 
 #circle_df = pickle.load(open("circle_df.p", "rb"))
 #triangle_df = pickle.load(open("triangle_df.p", "rb"))
@@ -59,8 +60,7 @@ pickle.dump(fireball_df, open("fireball_df.p", "wb"))
 #allshape_df = circle_df.append([triangle_df, fireball_df], ignore_index=True)
 
 #(slow and ugly, may need alt)
-#preprocessing - include sightings only bw 1/1/2005 and 9/22/2016. New column 'in_range' will be set to 1 if
-'''
+#preprocessing - include sightings only bw 1/1/2005 and 9/22/2016. New column 'in_range' will be set to 1 if true
 allshape_df['in range'] = [0]*len(allshape_df.index)
 for index, row in allshape_df.iterrows():
     try:
@@ -74,14 +74,32 @@ for index, row in allshape_df.iterrows():
 
 pickle.dump(allshape_df, open("allshape_df.p", "wb"))
 '''
+
+#loading datarame that has combined circle, traingle and fireball data
 allshape_df = pickle.load(open("allshape_df.p", "rb"))
+#newdata frame to hold in range duration rows only
 allshape_inrange_df=(pd.DataFrame([row for index, row in allshape_df.iterrows() if row['in range']==1])).reset_index(drop=True)
+#creating new column with datetime objects
 allshape_inrange_df['datetime'] =pd.to_datetime(allshape_inrange_df['Date / Time'])
-allshape_inrange_df = (allshape_df_inrange.sort('datetime')).reset_index(drop=True)
+#sorting dataframe by datetime column
+allshape_inrange_df = (allshape_inrange_df.sort_values('datetime')).reset_index(drop=True)
 
-#preprocessing - nicer format 'duration', 'duration' to seconds
+##preprocessing - nicer format 'duration', 'duration' to seconds
+#TODO
 
-#preprocessing - take out outside us locations
+##preprocessing - take out outside us locations, create region column
+stateregion = json.load(open('stateregion.json'))
+
+allshape_inrange_us_df = pd.DataFrame(columns=list(allshape_inrange_df.columns.values))
+for index, row in allshape_inrange_df.iterrows():
+    if row.State in [stateid for stateid in stateregion['states']]:
+        allshape_inrange_us_df=allshape_inrange_us_df.append(row, ignore_index=True)
+
+region = []
+for index, row in allshape_inrange_us_df.iterrows():
+    #allshape_inrange_us_df.iloc[index,10] = stateregion['states'][allshape_inrange_us_df.iloc[index]['State']]
+    region.append(stateregion['states'][row.State])
+allshape_inrange_us_df['region']=region
 
 ##box plot of duration
 
@@ -95,5 +113,4 @@ population_api = requests.get('http://api.census.gov/data/2015/acs1/cprofile?get
 population = population_api.text
 
 ###predicting ufo shape
-##preprocessing - state to region
 ##preprocessing - time to n, m, af, ev
