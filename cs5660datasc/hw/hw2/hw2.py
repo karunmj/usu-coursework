@@ -6,6 +6,8 @@ import datetime
 from dateutil import parser
 import json
 import numpy as np
+from sklearn import tree
+import pydotplus
 
 ###data collection, pre processing, exploratory analysis
 
@@ -44,6 +46,8 @@ pickle.dump(circle_df, open("circle_df.p", "wb"))
 pickle.dump(triangle_df, open("triangle_df.p", "wb"))
 pickle.dump(fireball_df, open("fireball_df.p", "wb"))
 '''
+
+
 circle_df = pickle.load(open("circle_df.p", "rb"))
 triangle_df = pickle.load(open("triangle_df.p", "rb"))
 fireball_df = pickle.load(open("fireball_df.p", "rb"))
@@ -102,6 +106,8 @@ allshape_inrange_us_df['region']=region
 population_api = requests.get('http://api.census.gov/data/2015/acs1/cprofile?get=CP05_2015_001E,NAME&for=state:*')
 population = population_api.text
 
+
+
 ###predicting ufo shape
 ##preprocessing - time to n, m, af, ev
 daypart = []
@@ -125,4 +131,16 @@ training_set = allshape_inrange_us_df[0:split_index][['datetimesighting' ,'daypa
 test_set = allshape_inrange_us_df[split_index:][['datetimesighting', 'daypart', 'region', 'Shape']]
 
 
+#Example code for iris 
+from sklearn.datasets import load_iris
+iris = load_iris()
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(iris.data, iris.target)
 
+dot_data = tree.export_graphviz(clf, out_file=None) 
+graph = pydotplus.graph_from_dot_data(dot_data) 
+graph.write_pdf("iris.pdf") 
+
+
+##decision tree illustration
+##accuracy table
