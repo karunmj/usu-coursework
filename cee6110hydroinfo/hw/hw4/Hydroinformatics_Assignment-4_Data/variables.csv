@@ -1,0 +1,17 @@
+﻿VariableCode,VariableName,Speciation,VariableUnitsID,SampleMedium,ValueType,IsRegular,TimeSupport,TimeUnitsID,DataType,GeneralCategory,NoDataValue
+WaterTemp_EXO,Temperature,Not Applicable,96,Surface Water,Field Observation,1,0,102,Continuous,Water Quality,-9999
+SpCond,Specific conductance,Not Applicable,192,Surface Water,Field Observation,1,0,102,Continuous,Water Quality,-9999
+pH,pH,Not Applicable,309,Surface Water,Field Observation,1,0,102,Continuous,Water Quality,-9999
+ODO,"Oxygen, dissolved",Not Applicable,199,Surface Water,Field Observation,1,0,102,Continuous,Water Quality,-9999
+ODO_Sat,"Oxygen, dissolved percent of saturation",Not Applicable,308,Surface Water,Field Observation,1,0,102,Continuous,Water Quality,-9999
+ODO_Local,"Oxygen, dissolved, transducer signal",Not Applicable,308,Surface Water,Field Observation,1,0,102,Continuous,Water Quality,-9999
+EXOVolt,Electric Power,Not Applicable,168,Not Relevant,Field Observation,1,0,102,Continuous,Instrumentation,-9999
+TurbAvg,Turbidity,Not Applicable,221,Surface Water,Field Observation,1,5,100,Average,Water Quality,-9999
+TurbMed,Turbidity,Not Applicable,221,Surface Water,Field Observation,1,5,100,Median,Water Quality,-9999
+TurbMin,Turbidity,Not Applicable,221,Surface Water,Field Observation,1,5,100,Minimum,Water Quality,-9999
+TurbMax,Turbidity,Not Applicable,221,Surface Water,Field Observation,1,5,100,Maximum,Water Quality,-9999
+TurbVar,Turbidity,Not Applicable,221,Surface Water,Field Observation,1,5,100,Variance,Water Quality,-9999
+TurbBES,Turbidity,Not Applicable,221,Surface Water,Field Observation,1,5,100,Best Easy Systematic Estimator,Water Quality,-9999
+WaterTemp_Turb,Temperature,Not Applicable,96,Surface Water,Field Observation,1,5,100,Average,Water Quality,-9999
+Stage,Gage height,Not Applicable,47,Surface Water,Field Observation,1,20,100,Average,Hydrology,-9999
+WaterTemp_PT,Temperature,Not Applicable,96,Surface Water,Field Observation,1,0,102,Continuous,Water Quality,-9999
