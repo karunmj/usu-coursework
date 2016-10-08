@@ -47,7 +47,6 @@ pickle.dump(triangle_df, open("triangle_df.p", "wb"))
 pickle.dump(fireball_df, open("fireball_df.p", "wb"))
 '''
 
-
 circle_df = pickle.load(open("circle_df.p", "rb"))
 triangle_df = pickle.load(open("triangle_df.p", "rb"))
 fireball_df = pickle.load(open("fireball_df.p", "rb"))
@@ -121,15 +120,35 @@ for index, row in allshape_inrange_us_df.iterrows():
     elif datetime.time(18,00) <= row['datetimesighting'].time() <= datetime.time(23,59):
         daypart.append('evening')
 
-allshape_inrange_us_df['daypart']=daypart
+allshape_inrange_us_df['time_of_day']=daypart
 
 ##creating training(1/1/2005 and 12/31/2013) and test (1/1/2014 and 9/22/2016)set
 #index of first row with 2014, 1, 1 as datetime
 split_index = allshape_inrange_us_df[allshape_inrange_us_df['datetimesighting'] == datetime.date(2014,1,1)].index[0]
 
-training_set = allshape_inrange_us_df[0:split_index][['datetimesighting' ,'daypart', 'region', 'Shape']]
-test_set = allshape_inrange_us_df[split_index:][['datetimesighting', 'daypart', 'region', 'Shape']]
+#redundant from below variable, uncomment for debugging datetimesighting
+# training_set = allshape_inrange_us_df[0:split_index][['datetimesighting' ,'time_of_day', 'region', 'Shape']].reset_index(drop=True)
+# test_set = allshape_inrange_us_df[split_index:][['datetimesighting', 'time_of_day', 'region', 'Shape']].reset_index(drop=True)
 
+training_set = allshape_inrange_us_df[0:split_index][['time_of_day', 'region', 'Shape']].reset_index(drop=True)
+test_set = allshape_inrange_us_df[split_index:][['time_of_day', 'region', 'Shape']].reset_index(drop=True)
+
+#Function to map unique attributes to integers
+def map_to_integer(df):
+    df_mod = df.copy()
+    unique_labels = [df_mod[column].unique() for column in df]
+    map_to_int = [{name: n for n, name in enumerate(labels)} for labels in unique_labels]
+    #unpacking list to a single dict
+    map_to_int_unlisted = { k: v for d in map_to_int for k, v in d.items() }
+    for column in df:
+        df_mod[column+'_mapping'] = df_mod[column].replace(map_to_int_unlisted)
+    return (df_mod, map_to_int, unique_labels)
+
+df1, map_to_int, unique_labels = map_to_integer(training_set)
+df2, map_to_int, unique_labels = map_to_integer(test_set)
+
+training_set = df1
+test_set = df2
 
 #Example code for iris 
 from sklearn.datasets import load_iris
@@ -140,7 +159,6 @@ clf = clf.fit(iris.data, iris.target)
 dot_data = tree.export_graphviz(clf, out_file=None) 
 graph = pydotplus.graph_from_dot_data(dot_data) 
 graph.write_pdf("iris.pdf") 
-
 
 ##decision tree illustration
 ##accuracy table
