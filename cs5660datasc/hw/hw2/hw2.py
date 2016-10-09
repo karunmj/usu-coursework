@@ -10,7 +10,7 @@ from sklearn import tree
 import pydotplus
 import matplotlib.pyplot as plt
 import collections
-
+'''
 ###data collection, pre processing, exploratory analysis
 
 ##circle, triangle, fireball data scraping, pickling
@@ -191,12 +191,17 @@ test_set = allshape_inrange_us_df[split_index:][['time_of_day', 'region', 'Shape
 
 pickle.dump(training_set, open("training_set.p", "wb"))
 pickle.dump(test_set, open("test_set.p", "wb"))
-
+'''
 training_set = pickle.load(open("training_set.p", "rb"))
 test_set = pickle.load(open("test_set.p", "rb"))
 
+#scikit-learn doesn't support categorical values, they need to be vectorized
+from sklearn.feature_extraction import DictVectorizer
+vec = DictVectorizer()
+
 
 #Function to map unique attributes to integers
+#Not correct way
 def map_to_integer(df):
     df_mod = df.copy()
     unique_labels = [df_mod[column].unique() for column in df]
@@ -220,22 +225,22 @@ iris = load_iris()
 clf = tree.DecisionTreeClassifier()
 clf = clf.fit(iris.data, iris.target)
 
-#training_data = training_set.as_matrix(columns=['time_of_day_mapping', 'region_mapping'])
-#training_target = training_set.as_matrix(columns=['Shape_mapping'])
-#clf = tree.DecisionTreeClassifier()
-#clf = clf.fit(training_data, training_target)
+training_data = training_set.as_matrix(columns=['time_of_day_mapping', 'region_mapping'])
+training_target = np.array(training_set['Shape_mapping'].tolist())
+
+clf = clf.fit(training_data, training_target)
 
 ##decision tree illustration
-dot_data = tree.export_graphviz(clf, out_file=None, feature_names=iris.feature_names, class_names=iris.target_names, filled=True, rounded=True, special_characters=True) 
-#dot_data = tree.export_graphviz(clf, out_file=None, feature_names=list(training_set[['time_of_day_mapping', 'region_mapping']].columns.values), class_names= unique_labels[2], filled=True, rounded=True, special_characters=True) 
-graph = pydotplus.graph_from_dot_data(dot_data) 
+#dot_data = tree.export_graphviz(clf, out_file=None, feature_names=iris.feature_names, class_names=iris.target_names, filled=True, rounded=True, special_characters=True) 
+dot_data = tree.export_graphviz(clf, out_file=None, feature_names=list(training_set[['time_of_day_mapping', 'region_mapping']].columns.values), class_names= unique_labels[2], filled=True, rounded=True, special_characters=True) 
 
 '''
 import sys
 reload (sys)
 sys.setdefaultencoding('utf8')
 '''
-#graph.write_pdf("ufo_tree.pdf") 
-graph.write_pdf("iris.pdf")
+graph = pydotplus.graph_from_dot_data(dot_data) 
+graph.write_pdf("ufo_tree.pdf") 
+#graph.write_pdf("iris.pdf")
 
 ##accuracy table
