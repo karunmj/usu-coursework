@@ -10,9 +10,12 @@ from sklearn import tree
 import pydotplus
 import matplotlib.pyplot as plt
 import collections
-'''
-###data collection, pre processing, exploratory analysis
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import precision_score, accuracy_score, classification_report, confusion_matrix
 
+
+###data collection, pre processing, exploratory analysis
 ##circle, triangle, fireball data scraping, pickling
 
 #data scraping
@@ -99,9 +102,10 @@ for index, row in allshape_inrange_us_df.iterrows():
 
 allshape_inrange_us_df['region']=region
 
-##box plot of duration
+###box plot of duration
+#TODO
 
-##time series plot of number of sightings
+###time series plot of number of sightings
 circle_sighting_df= (pd.DataFrame([row for index, row in allshape_inrange_us_df.iterrows() if row['Shape']=='Circle'])).reset_index(drop=True)
 circle_unique_year_number = dict()
 for index, row in circle_sighting_df.iterrows():
@@ -136,7 +140,7 @@ plt.plot(circle_unique_year_number.keys(), circle_unique_year_number.values(), '
 plt.legend(['Circle', 'Triangle', 'Fireball'], loc = 'lower right')
 plt.show()
 
-##bar chart of sightings per state
+###bar chart of sightings per state
 state_sighting = dict()
 for index, row in allshape_inrange_us_df.iterrows():
     if row['State'] in state_sighting.keys():
@@ -163,6 +167,9 @@ plt.ylabel('Number of sightings normalized by population')
 plt.title('Bar chart of sightings normalized per state population between 1/2005-9/2016') 
 plt.show()
 
+###Normalized sighting displayed on map
+#Refer to inex.html
+
 ###predicting ufo shape
 ##preprocessing - time to n, m, af, ev
 daypart = []
@@ -182,65 +189,44 @@ allshape_inrange_us_df['time_of_day']=daypart
 #index of first row with 2014, 1, 1 as datetime
 split_index = allshape_inrange_us_df[allshape_inrange_us_df['datetimesighting'] == datetime.date(2014,1,1)].index[0]
 
-#redundant from below variable, uncomment for debugging datetimesighting. remove later
-# training_set = allshape_inrange_us_df[0:split_index][['datetimesighting' ,'time_of_day', 'region', 'Shape']].reset_index(drop=True)
-# test_set = allshape_inrange_us_df[split_index:][['datetimesighting', 'time_of_day', 'region', 'Shape']].reset_index(drop=True)
-
 training_set = allshape_inrange_us_df[0:split_index][['time_of_day', 'region', 'Shape']].reset_index(drop=True)
 test_set = allshape_inrange_us_df[split_index:][['time_of_day', 'region', 'Shape']].reset_index(drop=True)
 
-pickle.dump(training_set, open("training_set.p", "wb"))
-pickle.dump(test_set, open("test_set.p", "wb"))
-'''
-training_set = pickle.load(open("training_set.p", "rb"))
-test_set = pickle.load(open("test_set.p", "rb"))
+# pickle.dump(training_set, open("training_set.p", "wb"))
+# pickle.dump(test_set, open("test_set.p", "wb"))
+
+# training_set = pickle.load(open("training_set.p", "rb"))
+# test_set = pickle.load(open("test_set.p", "rb"))
 
 #scikit-learn doesn't support categorical values, they need to be vectorized
-from sklearn.feature_extraction import DictVectorizer
-vec = DictVectorizer()
+training_set_dict = training_set[['region', 'time_of_day']].T.to_dict().values()
+vect1 = DictVectorizer(sparse=False)
+training_set_vector = vect1.fit_transform(training_set_dict)
+le1 = LabelEncoder()
+training_set_class = le1.fit_transform(training_set['Shape'])
+training_set_attributenames = vect1.get_feature_names()
 
+test_set_dict = test_set[['region', 'time_of_day']].T.to_dict().values()
+vect2 = DictVectorizer(sparse=False)
+test_set_vector = vect2.fit_transform(test_set_dict)
+le2 = LabelEncoder()
+test_set_attributenames = le2.fit_transform(test_set['Shape'])
 
-#Function to map unique attributes to integers
-#Not correct way
-def map_to_integer(df):
-    df_mod = df.copy()
-    unique_labels = [df_mod[column].unique() for column in df]
-    map_to_int = [{name: n for n, name in enumerate(labels)} for labels in unique_labels]
-    #unpacking list to a single dict
-    map_to_int_unlisted = { k: v for d in map_to_int for k, v in d.items() }
-    for column in df:
-        df_mod[column+'_mapping'] = df_mod[column].replace(map_to_int_unlisted)
-    return (df_mod, map_to_int, unique_labels)
+clf = tree.DecisionTreeClassifier(criterion='gini')
+clf = clf.fit(training_set_vector,training_set_class)
 
-df1, map_to_int, unique_labels = map_to_integer(training_set)
-df2, map_to_int, unique_labels = map_to_integer(test_set)
-
-training_set = df1
-test_set = df2
-
-##Fitting training data to a decision tree classifier
-# #Example code for iris 
-from sklearn.datasets import load_iris
-iris = load_iris()
-clf = tree.DecisionTreeClassifier()
-clf = clf.fit(iris.data, iris.target)
-
-training_data = training_set.as_matrix(columns=['time_of_day_mapping', 'region_mapping'])
-training_target = np.array(training_set['Shape_mapping'].tolist())
-
-clf = clf.fit(training_data, training_target)
-
-##decision tree illustration
-#dot_data = tree.export_graphviz(clf, out_file=None, feature_names=iris.feature_names, class_names=iris.target_names, filled=True, rounded=True, special_characters=True) 
-dot_data = tree.export_graphviz(clf, out_file=None, feature_names=list(training_set[['time_of_day_mapping', 'region_mapping']].columns.values), class_names= unique_labels[2], filled=True, rounded=True, special_characters=True) 
-
-'''
-import sys
-reload (sys)
-sys.setdefaultencoding('utf8')
-'''
+dot_data = tree.export_graphviz(clf, out_file=None, feature_names = [x.encode('ascii','ignore') for x in training_set_attributenames], class_names= ['Circle', 'Fireball', 'Triangle'], filled=True, rounded=True, special_characters=True) 
 graph = pydotplus.graph_from_dot_data(dot_data) 
 graph.write_pdf("ufo_tree.pdf") 
-#graph.write_pdf("iris.pdf")
+
+#prediction
+prediction = le.inverse_transform(clf.predict(test_set_vector))
 
 ##accuracy table
+print 'Accuracy is:', accuracy_score(test_set_attributenames, clf.predict(test_set_vector))
+print 'Precision is:', precision_score(test_set_attributenames, clf.predict(test_set_vector), average = None)
+print classification_report(test_set_attributenames, clf.predict(test_set_vector))
+
+y_true = test_set_attributenames
+y_pred = clf.predict(test_set_vector)
+confusion_matrix(y_true, y_pred)
