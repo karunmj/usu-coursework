@@ -229,4 +229,26 @@ print classification_report(test_set_attributenames, clf.predict(test_set_vector
 
 y_true = test_set_attributenames
 y_pred = clf.predict(test_set_vector)
-confusion_matrix(y_true, y_pred)
+a = confusion_matrix(y_true, y_pred)
+
+#from stackoverflow: http://stackoverflow.com/questions/31345724/scikit-learn-how-to-calculate-the-true-negative
+def process_cm(confusion_mat, i=0, to_print=True):
+    # i means which class to choose to do one-vs-the-rest calculation
+    # rows are actual obs whereas columns are predictions
+    TP = confusion_mat[i,i]  # correctly labeled as i
+    FP = confusion_mat[:,i].sum() - TP  # incorrectly labeled as i
+    FN = confusion_mat[i,:].sum() - TP  # incorrectly labeled as non-i
+    TN = confusion_mat.sum().sum() - TP - FP - FN
+    if to_print:
+        print('TP: {}'.format(TP))
+        print('FP: {}'.format(FP))
+        print('FN: {}'.format(FN))
+        print('TN: {}'.format(TN))
+        print('Accuracy: {}'.format(1.0*((float(TP)+TN)/(TP+TN+FP+FN))))
+    return TP, FP, FN, TN
+
+for i in range(3):
+    print('Calculating 2x2 contigency table for label{}'.format(i))
+    process_cm(a, i, to_print=True)
+
+
