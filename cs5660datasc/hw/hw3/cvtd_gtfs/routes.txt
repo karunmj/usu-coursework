@@ -1,0 +1,18 @@
+route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_color,route_text_color
+1,,1 EXT,Route  1 Extended,600 East and USU,3,,36ffb9,
+2,,1,Route  1,USU,3,,36ffb9,
+3,,2,Route  2,Innovation Campus,3,,c810d2,
+4,,3,Route  3,Cliffside,3,,ff5f2b,
+5,,10,Route 10,River Heights,3,,944400,
+6,,4,Route  4,USU/600 East,3,,fe41f3,
+7,,5,Route  5,North Logan,3,,fe1020,
+8,,6,Route  6,Aquatic Center,3,,ffbc03,
+9,,7,Route  7,Rec Center,3,,a234f9,
+10,,8,Route  8,North West Logan,3,,31fd2b,
+11,,9,Route  9,Yorkshire Village,3,,df6853,
+12,,11,Route 11,Nibley,3,,0082f0,
+14,,15,Route 15,,3,,019000,
+15,,16,Route 16,Lewiston/Franklin/ Preston,3,,ff4204,
+16,,13,Route 13,Providence/Millville/Hyrum,3,,0305e9,ffffff
+17,,14,Route 14,Providence/Millville,3,,0305e9,ffffff
+18,,12,Route 12,Hyrum,3,,0305e9,ffffff

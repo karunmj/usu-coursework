@@ -1,0 +1,1358 @@
+route_id,service_id,trip_id,trip_headsign,trip_short_name,direction_id,block_id,shape_id,wheelchair_accessible,bikes_allowed
+1,sat,sat1satext_1011,,,,,1,1,1
+1,sat,sat1satext_1030,,,,,1,1,1
+1,sat,sat1satext_1100,,,,,1,1,1
+1,sat,sat1satext_1130,,,,,1,1,1
+1,sat,sat1satext_1200,,,,,1,1,1
+1,sat,sat1satext_1230,,,,,1,1,1
+1,sat,sat1satext_1300,,,,,1,1,1
+1,sat,sat1satext_1330,,,,,1,1,1
+1,sat,sat1satext_1400,,,,,1,1,1
+1,sat,sat1satext_1430,,,,,1,1,1
+1,sat,sat1satext_1500,,,,,1,1,1
+1,sat,sat1satext_1530,,,,,1,1,1
+1,sat,sat1satext_1600,,,,,1,1,1
+1,sat,sat1satext_1630,,,,,1,1,1
+1,sat,sat1satext_1700,,,,,1,1,1
+1,sat,sat1satext_1730,,,,,1,1,1
+1,sat,sat1satext_1800,,,,,1,1,1
+1,sat,sat1satext_1830,,,,,1,1,1
+3,sat,sat2sat_1013,,,,,3,1,1
+3,sat,sat2sat_1030,,,,,3,1,1
+3,sat,sat2sat_1100,,,,,3,1,1
+3,sat,sat2sat_1130,,,,,3,1,1
+3,sat,sat2sat_1200,,,,,3,1,1
+3,sat,sat2sat_1230,,,,,3,1,1
+3,sat,sat2sat_1300,,,,,3,1,1
+3,sat,sat2sat_1330,,,,,3,1,1
+3,sat,sat2sat_1400,,,,,3,1,1
+3,sat,sat2sat_1430,,,,,3,1,1
+3,sat,sat2sat_1500,,,,,3,1,1
+3,sat,sat2sat_1530,,,,,3,1,1
+3,sat,sat2sat_1600,,,,,3,1,1
+3,sat,sat2sat_1630,,,,,3,1,1
+3,sat,sat2sat_1700,,,,,3,1,1
+3,sat,sat2sat_1730,,,,,3,1,1
+3,sat,sat2sat_1800,,,,,3,1,1
+3,sat,sat2sat_1830,,,,,3,1,1
+4,sat,sat3sat_1005,,,,,4,1,1
+5,sat,sat10sat_1030,,,,,5,1,1
+4,sat,sat3sat_1100,,,,,4,1,1
+5,sat,sat10sat_1130,,,,,5,1,1
+4,sat,sat3sat_1200,,,,,4,1,1
+5,sat,sat10sat_1230,,,,,5,1,1
+4,sat,sat3sat_1300,,,,,4,1,1
+5,sat,sat10sat_1330,,,,,5,1,1
+4,sat,sat3sat_1400,,,,,4,1,1
+5,sat,sat10sat_1430,,,,,5,1,1
+4,sat,sat3sat_1500,,,,,4,1,1
+5,sat,sat10sat_1530,,,,,5,1,1
+4,sat,sat3sat_1600,,,,,4,1,1
+5,sat,sat10sat_1630,,,,,5,1,1
+4,sat,sat3sat_1700,,,,,4,1,1
+5,sat,sat10sat_1730,,,,,5,1,1
+4,sat,sat3sat_1800,,,,,4,1,1
+5,sat,sat10sat_1830,,,,,5,1,1
+7,sat,sat5sat_1006,,,,,7,1,1
+7,sat,sat5sat_1030,,,,,7,1,1
+7,sat,sat5sat_1100,,,,,7,1,1
+7,sat,sat5sat_1130,,,,,7,1,1
+7,sat,sat5sat_1200,,,,,7,1,1
+7,sat,sat5sat_1230,,,,,7,1,1
+7,sat,sat5sat_1300,,,,,7,1,1
+7,sat,sat5sat_1330,,,,,7,1,1
+7,sat,sat5sat_1400,,,,,7,1,1
+7,sat,sat5sat_1430,,,,,7,1,1
+7,sat,sat5sat_1500,,,,,7,1,1
+7,sat,sat5sat_1530,,,,,7,1,1
+7,sat,sat5sat_1600,,,,,7,1,1
+7,sat,sat5sat_1630,,,,,7,1,1
+7,sat,sat5sat_1700,,,,,7,1,1
+7,sat,sat5sat_1730,,,,,7,1,1
+7,sat,sat5sat_1800,,,,,7,1,1
+7,sat,sat5sat_1830,,,,,7,1,1
+8,sat,sat6sat_1012,,,,,8,1,1
+8,sat,sat6sat_1030,,,,,8,1,1
+8,sat,sat6sat_1100,,,,,8,1,1
+8,sat,sat6sat_1130,,,,,8,1,1
+8,sat,sat6sat_1200,,,,,8,1,1
+8,sat,sat6sat_1230,,,,,8,1,1
+8,sat,sat6sat_1300,,,,,8,1,1
+8,sat,sat6sat_1330,,,,,8,1,1
+8,sat,sat6sat_1400,,,,,8,1,1
+8,sat,sat6sat_1430,,,,,8,1,1
+8,sat,sat6sat_1500,,,,,8,1,1
+8,sat,sat6sat_1530,,,,,8,1,1
+8,sat,sat6sat_1600,,,,,8,1,1
+8,sat,sat6sat_1630,,,,,8,1,1
+8,sat,sat6sat_1700,,,,,8,1,1
+8,sat,sat6sat_1730,,,,,8,1,1
+8,sat,sat6sat_1800,,,,,8,1,1
+8,sat,sat6sat_1830,,,,,8,1,1
+9,sat,sat7sat_1009,,,,,9,1,1
+9,sat,sat7sat_1030,,,,,9,1,1
+9,sat,sat7sat_1100,,,,,9,1,1
+9,sat,sat7sat_1130,,,,,9,1,1
+9,sat,sat7sat_1200,,,,,9,1,1
+9,sat,sat7sat_1230,,,,,9,1,1
+9,sat,sat7sat_1300,,,,,9,1,1
+9,sat,sat7sat_1330,,,,,9,1,1
+9,sat,sat7sat_1400,,,,,9,1,1
+9,sat,sat7sat_1430,,,,,9,1,1
+9,sat,sat7sat_1500,,,,,9,1,1
+9,sat,sat7sat_1530,,,,,9,1,1
+9,sat,sat7sat_1600,,,,,9,1,1
+9,sat,sat7sat_1630,,,,,9,1,1
+9,sat,sat7sat_1700,,,,,9,1,1
+9,sat,sat7sat_1730,,,,,9,1,1
+9,sat,sat7sat_1800,,,,,9,1,1
+9,sat,sat7sat_1830,,,,,9,1,1
+11,sat,sat9sat_1010,,,,,11,1,1
+11,sat,sat9sat_1030,,,,,11,1,1
+11,sat,sat9sat_1100,,,,,11,1,1
+11,sat,sat9sat_1130,,,,,11,1,1
+11,sat,sat9sat_1200,,,,,11,1,1
+11,sat,sat9sat_1230,,,,,11,1,1
+11,sat,sat9sat_1300,,,,,11,1,1
+11,sat,sat9sat_1330,,,,,11,1,1
+11,sat,sat9sat_1400,,,,,11,1,1
+11,sat,sat9sat_1430,,,,,11,1,1
+11,sat,sat9sat_1500,,,,,11,1,1
+11,sat,sat9sat_1530,,,,,11,1,1
+11,sat,sat9sat_1600,,,,,11,1,1
+11,sat,sat9sat_1630,,,,,11,1,1
+11,sat,sat9sat_1700,,,,,11,1,1
+11,sat,sat9sat_1730,,,,,11,1,1
+11,sat,sat9sat_1800,,,,,11,1,1
+11,sat,sat9sat_1830,,,,,11,1,1
+12,sat,sat11sat_1030,,,,,12,1,1
+12,sat,sat11sat_1130,,,,,12,1,1
+12,sat,sat11sat_1230,,,,,12,1,1
+12,sat,sat11sat_1330,,,,,12,1,1
+12,sat,sat11sat_1430,,,,,12,1,1
+12,sat,sat11sat_1530,,,,,12,1,1
+12,sat,sat11sat_1630,,,,,12,1,1
+12,sat,sat11sat_1730,,,,,12,1,1
+14,sat,satCVNsat_1015,,,,,14,1,1
+14,sat,satCVNsat_1145,,,,,14,1,1
+14,sat,satCVNsat_1315,,,,,14,1,1
+14,sat,satCVNsat_1445,,,,,14,1,1
+14,sat,satCVNsat_1615,,,,,14,1,1
+14,sat,satCVNsat_1745,,,,,14,1,1
+16,sat,satCVSOPsat_1015,,,,,16,1,1
+16,sat,satCVSOPsat_1130,,,,,16,1,1
+16,sat,satCVSOPsat_1245,,,,,16,1,1
+16,sat,satCVSOPsat_1400,,,,,16,1,1
+16,sat,satCVSOPsat_1515,,,,,16,1,1
+16,sat,satCVSOPsat_1630,,,,,16,1,1
+16,sat,satCVSOPsat_1745,,,,,16,1,1
+18,m-f spr,m-f sprCVSEm-f_0450,,,,,18,1,1
+18,m-f spr,m-f sprCVSEm-f_0600,,,,,18,1,1
+15,m-f spr,m-f sprIdaho1a_0455,,,,,15,1,1
+12,m-f spr,m-f spr11m-f_0530,,,,,12,1,1
+12,m-f spr,m-f spr11m-f_0630,,,,,12,1,1
+12,m-f spr,m-f spr11m-f_0730,,,,,12,1,1
+12,m-f spr,m-f spr11m-f_0830,,,,,12,1,1
+12,m-f spr,m-f spr11m-f_0930,,,,,12,1,1
+12,m-f spr,m-f spr11m-f_1030,,,,,12,1,1
+12,m-f spr,m-f spr11m-f_1130,,,,,12,1,1
+12,m-f spr,m-f spr11m-f_1230,,,,,12,1,1
+12,m-f spr,m-f spr11m-f_1330,,,,,12,1,1
+12,m-f spr,m-f spr11m-f_1430,,,,,12,1,1
+12,m-f spr,m-f spr11m-f_1530,,,,,12,1,1
+12,m-f spr,m-f spr11m-f_1630,,,,,12,1,1
+12,m-f spr,m-f spr11m-f_1730,,,,,12,1,1
+14,m-f spr,m-f sprCVNm-f_0545,,,,,14,1,1
+14,m-f spr,m-f sprCVNm-f_0715,,,,,14,1,1
+14,m-f spr,m-f sprCVNm-f_0845,,,,,14,1,1
+14,m-f spr,m-f sprCVNm-f_1015,,,,,14,1,1
+14,m-f spr,m-f sprCVNm-f_1145,,,,,14,1,1
+14,m-f spr,m-f sprCVNm-f_1315,,,,,14,1,1
+14,m-f spr,m-f sprCVNm-f_1445,,,,,14,1,1
+14,m-f spr,m-f sprCVNm-f_1615,,,,,14,1,1
+14,m-f spr,m-f sprCVNm-f_1745,,,,,14,1,1
+15,m-f spr,m-f sprIdaho2a_0605,,,,,15,1,1
+4,m-f spr,m-f spr3m-f_0605,,,,,4,1,1
+5,m-f spr,m-f spr10m-f_0630,,,,,5,1,1
+4,m-f spr,m-f spr3m-f_0700,,,,,4,1,1
+5,m-f spr,m-f spr10m-f_0730,,,,,5,1,1
+4,m-f spr,m-f spr3m-f_0800,,,,,4,1,1
+5,m-f spr,m-f spr10m-f_0830,,,,,5,1,1
+10,m-f spr,m-f spr8m-f_0900,,,,,10,1,1
+5,m-f spr,m-f spr10m-f_0930,,,,,5,1,1
+10,m-f spr,m-f spr8m-f_1000,,,,,10,1,1
+5,m-f spr,m-f spr10m-f_1030,,,,,5,1,1
+10,m-f spr,m-f spr8m-f_1100,,,,,10,1,1
+5,m-f spr,m-f spr10m-f_1130,,,,,5,1,1
+10,m-f spr,m-f spr8m-f_1200,,,,,10,1,1
+5,m-f spr,m-f spr10m-f_1230,,,,,5,1,1
+10,m-f spr,m-f spr8m-f_1300,,,,,10,1,1
+5,m-f spr,m-f spr10m-f_1330,,,,,5,1,1
+4,m-f spr,m-f spr3m-f_1400,,,,,4,1,1
+5,m-f spr,m-f spr10m-f_1430,,,,,5,1,1
+4,m-f spr,m-f spr3m-f_1500,,,,,4,1,1
+5,m-f spr,m-f spr10m-f_1530,,,,,5,1,1
+4,m-f spr,m-f spr3m-f_1600,,,,,4,1,1
+5,m-f spr,m-f spr10m-f_1630,,,,,5,1,1
+4,m-f spr,m-f spr3m-f_1700,,,,,4,1,1
+5,m-f spr,m-f spr10m-f_1730,,,,,5,1,1
+4,m-f spr,m-f spr3m-f_1800,,,,,4,1,1
+5,m-f spr,m-f spr10m-f_1830,,,,,5,1,1
+4,m-f spr,m-f spr3m-f_1900,,,,,4,1,1
+5,m-f spr,m-f spr10m-f_1930,,,,,5,1,1
+4,m-f spr,m-f spr3m-f_2000,,,,,4,1,1
+5,m-f spr,m-f spr10m-f_2030,,,,,5,1,1
+7,m-f spr,m-f spr5m-f_0606,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_0630,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_0700,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_0730,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_0800,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_0830,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_0900,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_0930,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1000,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1030,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1100,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1130,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1200,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1230,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1300,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1330,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1400,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1430,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1500,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1530,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1600,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1630,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1700,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1730,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1800,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1830,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1900,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_1930,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_2000,,,,,7,1,1
+7,m-f spr,m-f spr5m-f_2030,,,,,7,1,1
+1,m-f spr,m-f spr1extm-f_0611,,,,,1,1,1
+1,m-f spr,m-f spr1extm-f_0630,,,,,1,1,1
+2,m-f spr,m-f spr1m-f_0700,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_0730,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_0800,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_0830,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_0900,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_0930,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1000,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1030,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1100,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1130,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1200,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1230,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1300,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1330,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1400,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1430,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1500,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1530,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1600,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1630,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1700,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1730,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1800,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1830,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1900,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_1930,,,,,2,1,1
+2,m-f spr,m-f spr1m-f_2000,,,,,2,1,1
+1,m-f spr,m-f spr1extm-f_2030,,,,,1,1,1
+3,m-f spr,m-f spr2m-f_0613,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_0630,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_0700,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_0730,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_0800,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_0830,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_0900,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_0930,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1000,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1030,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1100,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1130,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1200,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1230,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1300,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1330,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1400,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1430,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1500,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1530,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1600,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1630,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1700,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1730,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1800,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1830,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1900,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_1930,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_2000,,,,,3,1,1
+3,m-f spr,m-f spr2m-f_2030,,,,,3,1,1
+8,m-f spr,m-f spr6m-f_0612,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_0630,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_0700,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_0730,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_0800,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_0830,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_0900,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_0930,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1000,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1030,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1100,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1130,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1200,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1230,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1300,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1330,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1400,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1430,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1500,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1530,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1600,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1630,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1700,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1730,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1800,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1830,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1900,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_1930,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_2000,,,,,8,1,1
+8,m-f spr,m-f spr6m-f_2030,,,,,8,1,1
+9,m-f spr,m-f spr7m-f_0609,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_0630,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_0700,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_0730,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_0800,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_0830,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_0900,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_0930,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1000,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1030,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1100,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1130,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1200,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1230,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1300,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1330,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1400,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1430,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1500,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1530,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1600,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1630,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1700,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1730,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1800,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1830,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1900,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_1930,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_2000,,,,,9,1,1
+9,m-f spr,m-f spr7m-f_2030,,,,,9,1,1
+10,m-f spr,m-f spr8m-f_0608,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_0630,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_0700,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_0730,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_0800,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_0830,,,,,10,1,1
+11,m-f spr,m-f spr9m-f_0610,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_0630,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_0700,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_0730,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_0800,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_0830,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_0900,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_0930,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1000,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1030,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1100,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1130,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1200,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1230,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1300,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1330,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1400,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1430,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1500,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1530,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1600,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1630,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1700,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1730,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1800,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1830,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1900,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_1930,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_2000,,,,,11,1,1
+11,m-f spr,m-f spr9m-f_2030,,,,,11,1,1
+17,m-f spr,m-f sprCVSPm-f_0630,,,,,17,1,1
+17,m-f spr,m-f sprCVSPm-f_0715,,,,,17,1,1
+17,m-f spr,m-f sprCVSPm-f_0800,,,,,17,1,1
+17,m-f spr,m-f sprCVSPm-f_0845,,,,,17,1,1
+14,m-f spr,m-f sprCVNPm-f_0630,,,,,14,1,1
+14,m-f spr,m-f sprCVNPm-f_0800,,,,,14,1,1
+6,m-f spr,m-f spr4m-f_0700,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_0730,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_0800,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_0830,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_0900,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_0930,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1000,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1030,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1100,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1130,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1200,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1230,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1300,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1330,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1400,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1430,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1500,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1530,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1600,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1630,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1700,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1730,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1800,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1830,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1900,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_1930,,,,,6,1,1
+6,m-f spr,m-f spr4m-f_2000,,,,,6,1,1
+18,m-f spr,m-f sprCVSEm-f_0700,,,,,18,1,1
+18,m-f spr,m-f sprCVSEm-f_0800,,,,,18,1,1
+16,m-f spr,m-f sprCVSOPm-f_0900,,,,,16,1,1
+16,m-f spr,m-f sprCVSOPm-f_1015,,,,,16,1,1
+16,m-f spr,m-f sprCVSOPm-f_1130,,,,,16,1,1
+16,m-f spr,m-f sprCVSOPm-f_1245,,,,,16,1,1
+18,m-f spr,m-f sprCVSEm-f_1400,,,,,18,1,1
+18,m-f spr,m-f sprCVSEm-f_1500,,,,,18,1,1
+18,m-f spr,m-f sprCVSEm-f_1600,,,,,18,1,1
+18,m-f spr,m-f sprCVSEm-f_1700,,,,,18,1,1
+18,m-f spr,m-f sprCVSEm-f_1800,,,,,18,1,1
+10,m-f spr,m-f spr8m-f_1400,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_1430,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_1500,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_1530,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_1600,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_1630,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_1700,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_1730,,,,,10,1,1
+10,m-f spr,m-f spr8m-f_1800,,,,,10,1,1
+14,m-f spr,m-f sprCVNPm-f_1530,,,,,14,1,1
+14,m-f spr,m-f sprCVNPm-f_1700,,,,,14,1,1
+17,m-f spr,m-f sprCVSPm-f_1445,,,,,17,1,1
+17,m-f spr,m-f sprCVSPm-f_1530,,,,,17,1,1
+17,m-f spr,m-f sprCVSPm-f_1615,,,,,17,1,1
+17,m-f spr,m-f sprCVSPm-f_1700,,,,,17,1,1
+17,m-f spr,m-f sprCVSPm-f_1745,,,,,17,1,1
+15,m-f spr,m-f sprIdaho1b_1630,,,,,15,1,1
+15,m-f spr,m-f sprIdaho2b_1730,,,,,15,1,1
+2,m-f spr,m-f spr1Pm-f_0715,,,,,2,1,1
+2,m-f spr,m-f spr1Pm-f_0745,,,,,2,1,1
+2,m-f spr,m-f spr1Pm-f_0815,,,,,2,1,1
+2,m-f spr,m-f spr1Pm-f_0845,,,,,2,1,1
+2,m-f spr,m-f spr1Pm-f_0915,,,,,2,1,1
+2,m-f spr,m-f spr1Pm-f_0945,,,,,2,1,1
+2,m-f spr,m-f spr1Pm-f_1015,,,,,2,1,1
+2,m-f spr,m-f spr1Pm-f_1515,,,,,2,1,1
+2,m-f spr,m-f spr1Pm-f_1545,,,,,2,1,1
+2,m-f spr,m-f spr1Pm-f_1615,,,,,2,1,1
+2,m-f spr,m-f spr1Pm-f_1645,,,,,2,1,1
+2,m-f spr,m-f spr1Pm-f_1715,,,,,2,1,1
+2,m-f spr,m-f spr1Pm-f_1745,,,,,2,1,1
+18,m-f sum,m-f sumCVSEm-f_0450,,,,,18,1,1
+18,m-f sum,m-f sumCVSEm-f_0600,,,,,18,1,1
+15,m-f sum,m-f sumIdaho1a_0455,,,,,15,1,1
+12,m-f sum,m-f sum11m-f_0530,,,,,12,1,1
+12,m-f sum,m-f sum11m-f_0630,,,,,12,1,1
+12,m-f sum,m-f sum11m-f_0730,,,,,12,1,1
+12,m-f sum,m-f sum11m-f_0830,,,,,12,1,1
+12,m-f sum,m-f sum11m-f_0930,,,,,12,1,1
+12,m-f sum,m-f sum11m-f_1030,,,,,12,1,1
+12,m-f sum,m-f sum11m-f_1130,,,,,12,1,1
+12,m-f sum,m-f sum11m-f_1230,,,,,12,1,1
+12,m-f sum,m-f sum11m-f_1330,,,,,12,1,1
+12,m-f sum,m-f sum11m-f_1430,,,,,12,1,1
+12,m-f sum,m-f sum11m-f_1530,,,,,12,1,1
+12,m-f sum,m-f sum11m-f_1630,,,,,12,1,1
+12,m-f sum,m-f sum11m-f_1730,,,,,12,1,1
+14,m-f sum,m-f sumCVNm-f_0545,,,,,14,1,1
+14,m-f sum,m-f sumCVNm-f_0715,,,,,14,1,1
+14,m-f sum,m-f sumCVNm-f_0845,,,,,14,1,1
+14,m-f sum,m-f sumCVNm-f_1015,,,,,14,1,1
+14,m-f sum,m-f sumCVNm-f_1145,,,,,14,1,1
+14,m-f sum,m-f sumCVNm-f_1315,,,,,14,1,1
+14,m-f sum,m-f sumCVNm-f_1445,,,,,14,1,1
+14,m-f sum,m-f sumCVNm-f_1615,,,,,14,1,1
+14,m-f sum,m-f sumCVNm-f_1745,,,,,14,1,1
+15,m-f sum,m-f sumIdaho2a_0605,,,,,15,1,1
+4,m-f sum,m-f sum3m-f_0605,,,,,4,1,1
+5,m-f sum,m-f sum10m-f_0630,,,,,5,1,1
+4,m-f sum,m-f sum3m-f_0700,,,,,4,1,1
+5,m-f sum,m-f sum10m-f_0730,,,,,5,1,1
+4,m-f sum,m-f sum3m-f_0800,,,,,4,1,1
+5,m-f sum,m-f sum10m-f_0830,,,,,5,1,1
+10,m-f sum,m-f sum8m-f_0900,,,,,10,1,1
+5,m-f sum,m-f sum10m-f_0930,,,,,5,1,1
+10,m-f sum,m-f sum8m-f_1000,,,,,10,1,1
+5,m-f sum,m-f sum10m-f_1030,,,,,5,1,1
+10,m-f sum,m-f sum8m-f_1100,,,,,10,1,1
+5,m-f sum,m-f sum10m-f_1130,,,,,5,1,1
+10,m-f sum,m-f sum8m-f_1200,,,,,10,1,1
+5,m-f sum,m-f sum10m-f_1230,,,,,5,1,1
+10,m-f sum,m-f sum8m-f_1300,,,,,10,1,1
+5,m-f sum,m-f sum10m-f_1330,,,,,5,1,1
+4,m-f sum,m-f sum3m-f_1400,,,,,4,1,1
+5,m-f sum,m-f sum10m-f_1430,,,,,5,1,1
+4,m-f sum,m-f sum3m-f_1500,,,,,4,1,1
+5,m-f sum,m-f sum10m-f_1530,,,,,5,1,1
+4,m-f sum,m-f sum3m-f_1600,,,,,4,1,1
+5,m-f sum,m-f sum10m-f_1630,,,,,5,1,1
+4,m-f sum,m-f sum3m-f_1700,,,,,4,1,1
+5,m-f sum,m-f sum10m-f_1730,,,,,5,1,1
+4,m-f sum,m-f sum3m-f_1800,,,,,4,1,1
+5,m-f sum,m-f sum10m-f_1830,,,,,5,1,1
+4,m-f sum,m-f sum3m-f_1900,,,,,4,1,1
+5,m-f sum,m-f sum10m-f_1930,,,,,5,1,1
+4,m-f sum,m-f sum3m-f_2000,,,,,4,1,1
+5,m-f sum,m-f sum10m-f_2030,,,,,5,1,1
+7,m-f sum,m-f sum5m-f_0606,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_0630,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_0700,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_0730,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_0800,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_0830,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_0900,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_0930,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1000,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1030,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1100,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1130,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1200,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1230,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1300,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1330,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1400,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1430,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1500,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1530,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1600,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1630,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1700,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1730,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1800,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1830,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1900,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_1930,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_2000,,,,,7,1,1
+7,m-f sum,m-f sum5m-f_2030,,,,,7,1,1
+1,m-f sum,m-f sum1extm-f_0611,,,,,1,1,1
+1,m-f sum,m-f sum1extm-f_0630,,,,,1,1,1
+2,m-f sum,m-f sum1m-f_0700,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_0730,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_0800,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_0830,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_0900,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_0930,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1000,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1030,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1100,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1130,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1200,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1230,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1300,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1330,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1400,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1430,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1500,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1530,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1600,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1630,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1700,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1730,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1800,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1830,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1900,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_1930,,,,,2,1,1
+2,m-f sum,m-f sum1m-f_2000,,,,,2,1,1
+1,m-f sum,m-f sum1extm-f_2030,,,,,1,1,1
+3,m-f sum,m-f sum2m-f_0613,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_0630,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_0700,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_0730,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_0800,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_0830,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_0900,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_0930,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1000,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1030,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1100,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1130,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1200,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1230,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1300,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1330,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1400,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1430,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1500,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1530,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1600,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1630,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1700,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1730,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1800,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1830,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1900,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_1930,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_2000,,,,,3,1,1
+3,m-f sum,m-f sum2m-f_2030,,,,,3,1,1
+8,m-f sum,m-f sum6m-f_0612,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_0630,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_0700,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_0730,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_0800,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_0830,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_0900,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_0930,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1000,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1030,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1100,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1130,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1200,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1230,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1300,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1330,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1400,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1430,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1500,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1530,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1600,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1630,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1700,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1730,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1800,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1830,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1900,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_1930,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_2000,,,,,8,1,1
+8,m-f sum,m-f sum6m-f_2030,,,,,8,1,1
+9,m-f sum,m-f sum7m-f_0609,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_0630,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_0700,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_0730,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_0800,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_0830,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_0900,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_0930,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1000,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1030,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1100,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1130,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1200,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1230,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1300,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1330,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1400,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1430,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1500,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1530,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1600,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1630,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1700,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1730,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1800,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1830,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1900,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_1930,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_2000,,,,,9,1,1
+9,m-f sum,m-f sum7m-f_2030,,,,,9,1,1
+10,m-f sum,m-f sum8m-f_0608,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_0630,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_0700,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_0730,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_0800,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_0830,,,,,10,1,1
+11,m-f sum,m-f sum9m-f_0610,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_0630,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_0700,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_0730,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_0800,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_0830,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_0900,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_0930,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1000,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1030,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1100,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1130,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1200,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1230,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1300,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1330,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1400,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1430,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1500,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1530,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1600,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1630,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1700,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1730,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1800,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1830,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1900,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_1930,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_2000,,,,,11,1,1
+11,m-f sum,m-f sum9m-f_2030,,,,,11,1,1
+17,m-f sum,m-f sumCVSPm-f_0630,,,,,17,1,1
+17,m-f sum,m-f sumCVSPm-f_0715,,,,,17,1,1
+17,m-f sum,m-f sumCVSPm-f_0800,,,,,17,1,1
+17,m-f sum,m-f sumCVSPm-f_0845,,,,,17,1,1
+14,m-f sum,m-f sumCVNPm-f_0630,,,,,14,1,1
+14,m-f sum,m-f sumCVNPm-f_0800,,,,,14,1,1
+6,m-f sum,m-f sum4m-f_0700,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_0730,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_0800,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_0830,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_0900,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_0930,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1000,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1030,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1100,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1130,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1200,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1230,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1300,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1330,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1400,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1430,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1500,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1530,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1600,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1630,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1700,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1730,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1800,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1830,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1900,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_1930,,,,,6,1,1
+6,m-f sum,m-f sum4m-f_2000,,,,,6,1,1
+18,m-f sum,m-f sumCVSEm-f_0700,,,,,18,1,1
+18,m-f sum,m-f sumCVSEm-f_0800,,,,,18,1,1
+16,m-f sum,m-f sumCVSOPm-f_0900,,,,,16,1,1
+16,m-f sum,m-f sumCVSOPm-f_1015,,,,,16,1,1
+16,m-f sum,m-f sumCVSOPm-f_1130,,,,,16,1,1
+16,m-f sum,m-f sumCVSOPm-f_1245,,,,,16,1,1
+18,m-f sum,m-f sumCVSEm-f_1400,,,,,18,1,1
+18,m-f sum,m-f sumCVSEm-f_1500,,,,,18,1,1
+18,m-f sum,m-f sumCVSEm-f_1600,,,,,18,1,1
+18,m-f sum,m-f sumCVSEm-f_1700,,,,,18,1,1
+18,m-f sum,m-f sumCVSEm-f_1800,,,,,18,1,1
+10,m-f sum,m-f sum8m-f_1400,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_1430,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_1500,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_1530,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_1600,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_1630,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_1700,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_1730,,,,,10,1,1
+10,m-f sum,m-f sum8m-f_1800,,,,,10,1,1
+14,m-f sum,m-f sumCVNPm-f_1530,,,,,14,1,1
+14,m-f sum,m-f sumCVNPm-f_1700,,,,,14,1,1
+17,m-f sum,m-f sumCVSPm-f_1445,,,,,17,1,1
+17,m-f sum,m-f sumCVSPm-f_1530,,,,,17,1,1
+17,m-f sum,m-f sumCVSPm-f_1615,,,,,17,1,1
+17,m-f sum,m-f sumCVSPm-f_1700,,,,,17,1,1
+17,m-f sum,m-f sumCVSPm-f_1745,,,,,17,1,1
+15,m-f sum,m-f sumIdaho1b_1630,,,,,15,1,1
+15,m-f sum,m-f sumIdaho2b_1730,,,,,15,1,1
+18,Christmas,ChristmasCVSEm-f_0450,,,,,18,1,1
+18,Christmas,ChristmasCVSEm-f_0600,,,,,18,1,1
+15,Christmas,ChristmasIdaho1a_0455,,,,,15,1,1
+12,Christmas,Christmas11m-f_0530,,,,,12,1,1
+12,Christmas,Christmas11m-f_0630,,,,,12,1,1
+12,Christmas,Christmas11m-f_0730,,,,,12,1,1
+12,Christmas,Christmas11m-f_0830,,,,,12,1,1
+12,Christmas,Christmas11m-f_0930,,,,,12,1,1
+12,Christmas,Christmas11m-f_1030,,,,,12,1,1
+12,Christmas,Christmas11m-f_1130,,,,,12,1,1
+12,Christmas,Christmas11m-f_1230,,,,,12,1,1
+12,Christmas,Christmas11m-f_1330,,,,,12,1,1
+12,Christmas,Christmas11m-f_1430,,,,,12,1,1
+12,Christmas,Christmas11m-f_1530,,,,,12,1,1
+12,Christmas,Christmas11m-f_1630,,,,,12,1,1
+12,Christmas,Christmas11m-f_1730,,,,,12,1,1
+14,Christmas,ChristmasCVNm-f_0545,,,,,14,1,1
+14,Christmas,ChristmasCVNm-f_0715,,,,,14,1,1
+14,Christmas,ChristmasCVNm-f_0845,,,,,14,1,1
+14,Christmas,ChristmasCVNm-f_1015,,,,,14,1,1
+14,Christmas,ChristmasCVNm-f_1145,,,,,14,1,1
+14,Christmas,ChristmasCVNm-f_1315,,,,,14,1,1
+14,Christmas,ChristmasCVNm-f_1445,,,,,14,1,1
+14,Christmas,ChristmasCVNm-f_1615,,,,,14,1,1
+14,Christmas,ChristmasCVNm-f_1745,,,,,14,1,1
+15,Christmas,ChristmasIdaho2a_0605,,,,,15,1,1
+4,Christmas,Christmas3m-f_0605,,,,,4,1,1
+5,Christmas,Christmas10m-f_0630,,,,,5,1,1
+4,Christmas,Christmas3m-f_0700,,,,,4,1,1
+5,Christmas,Christmas10m-f_0730,,,,,5,1,1
+4,Christmas,Christmas3m-f_0800,,,,,4,1,1
+5,Christmas,Christmas10m-f_0830,,,,,5,1,1
+10,Christmas,Christmas8m-f_0900,,,,,10,1,1
+5,Christmas,Christmas10m-f_0930,,,,,5,1,1
+10,Christmas,Christmas8m-f_1000,,,,,10,1,1
+5,Christmas,Christmas10m-f_1030,,,,,5,1,1
+10,Christmas,Christmas8m-f_1100,,,,,10,1,1
+5,Christmas,Christmas10m-f_1130,,,,,5,1,1
+10,Christmas,Christmas8m-f_1200,,,,,10,1,1
+5,Christmas,Christmas10m-f_1230,,,,,5,1,1
+10,Christmas,Christmas8m-f_1300,,,,,10,1,1
+5,Christmas,Christmas10m-f_1330,,,,,5,1,1
+4,Christmas,Christmas3m-f_1400,,,,,4,1,1
+5,Christmas,Christmas10m-f_1430,,,,,5,1,1
+4,Christmas,Christmas3m-f_1500,,,,,4,1,1
+5,Christmas,Christmas10m-f_1530,,,,,5,1,1
+4,Christmas,Christmas3m-f_1600,,,,,4,1,1
+5,Christmas,Christmas10m-f_1630,,,,,5,1,1
+4,Christmas,Christmas3m-f_1700,,,,,4,1,1
+5,Christmas,Christmas10m-f_1730,,,,,5,1,1
+4,Christmas,Christmas3m-f_1800,,,,,4,1,1
+5,Christmas,Christmas10Christmas_1830,,,,,5,1,1
+7,Christmas,Christmas5m-f_0606,,,,,7,1,1
+7,Christmas,Christmas5m-f_0630,,,,,7,1,1
+7,Christmas,Christmas5m-f_0700,,,,,7,1,1
+7,Christmas,Christmas5m-f_0730,,,,,7,1,1
+7,Christmas,Christmas5m-f_0800,,,,,7,1,1
+7,Christmas,Christmas5m-f_0830,,,,,7,1,1
+7,Christmas,Christmas5m-f_0900,,,,,7,1,1
+7,Christmas,Christmas5m-f_0930,,,,,7,1,1
+7,Christmas,Christmas5m-f_1000,,,,,7,1,1
+7,Christmas,Christmas5m-f_1030,,,,,7,1,1
+7,Christmas,Christmas5m-f_1100,,,,,7,1,1
+7,Christmas,Christmas5m-f_1130,,,,,7,1,1
+7,Christmas,Christmas5m-f_1200,,,,,7,1,1
+7,Christmas,Christmas5m-f_1230,,,,,7,1,1
+7,Christmas,Christmas5m-f_1300,,,,,7,1,1
+7,Christmas,Christmas5m-f_1330,,,,,7,1,1
+7,Christmas,Christmas5m-f_1400,,,,,7,1,1
+7,Christmas,Christmas5m-f_1430,,,,,7,1,1
+7,Christmas,Christmas5m-f_1500,,,,,7,1,1
+7,Christmas,Christmas5m-f_1530,,,,,7,1,1
+7,Christmas,Christmas5m-f_1600,,,,,7,1,1
+7,Christmas,Christmas5m-f_1630,,,,,7,1,1
+7,Christmas,Christmas5m-f_1700,,,,,7,1,1
+7,Christmas,Christmas5m-f_1730,,,,,7,1,1
+7,Christmas,Christmas5m-f_1800,,,,,7,1,1
+7,Christmas,Christmas5Christmas_1830,,,,,7,1,1
+1,Christmas,Christmas1extm-f_0611,,,,,1,1,1
+1,Christmas,Christmas1extm-f_0630,,,,,1,1,1
+2,Christmas,Christmas1m-f_0700,,,,,2,1,1
+2,Christmas,Christmas1m-f_0730,,,,,2,1,1
+2,Christmas,Christmas1m-f_0800,,,,,2,1,1
+2,Christmas,Christmas1m-f_0830,,,,,2,1,1
+2,Christmas,Christmas1m-f_0900,,,,,2,1,1
+2,Christmas,Christmas1m-f_0930,,,,,2,1,1
+2,Christmas,Christmas1m-f_1000,,,,,2,1,1
+2,Christmas,Christmas1m-f_1030,,,,,2,1,1
+2,Christmas,Christmas1m-f_1100,,,,,2,1,1
+2,Christmas,Christmas1m-f_1130,,,,,2,1,1
+2,Christmas,Christmas1m-f_1200,,,,,2,1,1
+2,Christmas,Christmas1m-f_1230,,,,,2,1,1
+2,Christmas,Christmas1m-f_1300,,,,,2,1,1
+2,Christmas,Christmas1m-f_1330,,,,,2,1,1
+2,Christmas,Christmas1m-f_1400,,,,,2,1,1
+2,Christmas,Christmas1m-f_1430,,,,,2,1,1
+2,Christmas,Christmas1m-f_1500,,,,,2,1,1
+2,Christmas,Christmas1m-f_1530,,,,,2,1,1
+2,Christmas,Christmas1m-f_1600,,,,,2,1,1
+2,Christmas,Christmas1m-f_1630,,,,,2,1,1
+2,Christmas,Christmas1m-f_1700,,,,,2,1,1
+2,Christmas,Christmas1m-f_1730,,,,,2,1,1
+2,Christmas,Christmas1m-f_1800,,,,,2,1,1
+1,Christmas,Christmas1extChristmas_1830,,,,,1,1,1
+3,Christmas,Christmas2m-f_0613,,,,,3,1,1
+3,Christmas,Christmas2m-f_0630,,,,,3,1,1
+3,Christmas,Christmas2m-f_0700,,,,,3,1,1
+3,Christmas,Christmas2m-f_0730,,,,,3,1,1
+3,Christmas,Christmas2m-f_0800,,,,,3,1,1
+3,Christmas,Christmas2m-f_0830,,,,,3,1,1
+3,Christmas,Christmas2m-f_0900,,,,,3,1,1
+3,Christmas,Christmas2m-f_0930,,,,,3,1,1
+3,Christmas,Christmas2m-f_1000,,,,,3,1,1
+3,Christmas,Christmas2m-f_1030,,,,,3,1,1
+3,Christmas,Christmas2m-f_1100,,,,,3,1,1
+3,Christmas,Christmas2m-f_1130,,,,,3,1,1
+3,Christmas,Christmas2m-f_1200,,,,,3,1,1
+3,Christmas,Christmas2m-f_1230,,,,,3,1,1
+3,Christmas,Christmas2m-f_1300,,,,,3,1,1
+3,Christmas,Christmas2m-f_1330,,,,,3,1,1
+3,Christmas,Christmas2m-f_1400,,,,,3,1,1
+3,Christmas,Christmas2m-f_1430,,,,,3,1,1
+3,Christmas,Christmas2m-f_1500,,,,,3,1,1
+3,Christmas,Christmas2m-f_1530,,,,,3,1,1
+3,Christmas,Christmas2m-f_1600,,,,,3,1,1
+3,Christmas,Christmas2m-f_1630,,,,,3,1,1
+3,Christmas,Christmas2m-f_1700,,,,,3,1,1
+3,Christmas,Christmas2m-f_1730,,,,,3,1,1
+3,Christmas,Christmas2m-f_1800,,,,,3,1,1
+3,Christmas,Christmas2Christmas_1830,,,,,3,1,1
+8,Christmas,Christmas6m-f_0612,,,,,8,1,1
+8,Christmas,Christmas6m-f_0630,,,,,8,1,1
+8,Christmas,Christmas6m-f_0700,,,,,8,1,1
+8,Christmas,Christmas6m-f_0730,,,,,8,1,1
+8,Christmas,Christmas6m-f_0800,,,,,8,1,1
+8,Christmas,Christmas6m-f_0830,,,,,8,1,1
+8,Christmas,Christmas6m-f_0900,,,,,8,1,1
+8,Christmas,Christmas6m-f_0930,,,,,8,1,1
+8,Christmas,Christmas6m-f_1000,,,,,8,1,1
+8,Christmas,Christmas6m-f_1030,,,,,8,1,1
+8,Christmas,Christmas6m-f_1100,,,,,8,1,1
+8,Christmas,Christmas6m-f_1130,,,,,8,1,1
+8,Christmas,Christmas6m-f_1200,,,,,8,1,1
+8,Christmas,Christmas6m-f_1230,,,,,8,1,1
+8,Christmas,Christmas6m-f_1300,,,,,8,1,1
+8,Christmas,Christmas6m-f_1330,,,,,8,1,1
+8,Christmas,Christmas6m-f_1400,,,,,8,1,1
+8,Christmas,Christmas6m-f_1430,,,,,8,1,1
+8,Christmas,Christmas6m-f_1500,,,,,8,1,1
+8,Christmas,Christmas6m-f_1530,,,,,8,1,1
+8,Christmas,Christmas6m-f_1600,,,,,8,1,1
+8,Christmas,Christmas6m-f_1630,,,,,8,1,1
+8,Christmas,Christmas6m-f_1700,,,,,8,1,1
+8,Christmas,Christmas6m-f_1730,,,,,8,1,1
+8,Christmas,Christmas6m-f_1800,,,,,8,1,1
+8,Christmas,Christmas6Christmas_1830,,,,,8,1,1
+9,Christmas,Christmas7m-f_0609,,,,,9,1,1
+9,Christmas,Christmas7m-f_0630,,,,,9,1,1
+9,Christmas,Christmas7m-f_0700,,,,,9,1,1
+9,Christmas,Christmas7m-f_0730,,,,,9,1,1
+9,Christmas,Christmas7m-f_0800,,,,,9,1,1
+9,Christmas,Christmas7m-f_0830,,,,,9,1,1
+9,Christmas,Christmas7m-f_0900,,,,,9,1,1
+9,Christmas,Christmas7m-f_0930,,,,,9,1,1
+9,Christmas,Christmas7m-f_1000,,,,,9,1,1
+9,Christmas,Christmas7m-f_1030,,,,,9,1,1
+9,Christmas,Christmas7m-f_1100,,,,,9,1,1
+9,Christmas,Christmas7m-f_1130,,,,,9,1,1
+9,Christmas,Christmas7m-f_1200,,,,,9,1,1
+9,Christmas,Christmas7m-f_1230,,,,,9,1,1
+9,Christmas,Christmas7m-f_1300,,,,,9,1,1
+9,Christmas,Christmas7m-f_1330,,,,,9,1,1
+9,Christmas,Christmas7m-f_1400,,,,,9,1,1
+9,Christmas,Christmas7m-f_1430,,,,,9,1,1
+9,Christmas,Christmas7m-f_1500,,,,,9,1,1
+9,Christmas,Christmas7m-f_1530,,,,,9,1,1
+9,Christmas,Christmas7m-f_1600,,,,,9,1,1
+9,Christmas,Christmas7m-f_1630,,,,,9,1,1
+9,Christmas,Christmas7m-f_1700,,,,,9,1,1
+9,Christmas,Christmas7m-f_1730,,,,,9,1,1
+9,Christmas,Christmas7m-f_1800,,,,,9,1,1
+9,Christmas,Christmas7Christmas_1830,,,,,9,1,1
+10,Christmas,Christmas8m-f_0608,,,,,10,1,1
+10,Christmas,Christmas8m-f_0630,,,,,10,1,1
+10,Christmas,Christmas8m-f_0700,,,,,10,1,1
+10,Christmas,Christmas8m-f_0730,,,,,10,1,1
+10,Christmas,Christmas8m-f_0800,,,,,10,1,1
+10,Christmas,Christmas8m-f_0830,,,,,10,1,1
+11,Christmas,Christmas9m-f_0610,,,,,11,1,1
+11,Christmas,Christmas9m-f_0630,,,,,11,1,1
+11,Christmas,Christmas9m-f_0700,,,,,11,1,1
+11,Christmas,Christmas9m-f_0730,,,,,11,1,1
+11,Christmas,Christmas9m-f_0800,,,,,11,1,1
+11,Christmas,Christmas9m-f_0830,,,,,11,1,1
+11,Christmas,Christmas9m-f_0900,,,,,11,1,1
+11,Christmas,Christmas9m-f_0930,,,,,11,1,1
+11,Christmas,Christmas9m-f_1000,,,,,11,1,1
+11,Christmas,Christmas9m-f_1030,,,,,11,1,1
+11,Christmas,Christmas9m-f_1100,,,,,11,1,1
+11,Christmas,Christmas9m-f_1130,,,,,11,1,1
+11,Christmas,Christmas9m-f_1200,,,,,11,1,1
+11,Christmas,Christmas9m-f_1230,,,,,11,1,1
+11,Christmas,Christmas9m-f_1300,,,,,11,1,1
+11,Christmas,Christmas9m-f_1330,,,,,11,1,1
+11,Christmas,Christmas9m-f_1400,,,,,11,1,1
+11,Christmas,Christmas9m-f_1430,,,,,11,1,1
+11,Christmas,Christmas9m-f_1500,,,,,11,1,1
+11,Christmas,Christmas9m-f_1530,,,,,11,1,1
+11,Christmas,Christmas9m-f_1600,,,,,11,1,1
+11,Christmas,Christmas9m-f_1630,,,,,11,1,1
+11,Christmas,Christmas9m-f_1700,,,,,11,1,1
+11,Christmas,Christmas9m-f_1730,,,,,11,1,1
+11,Christmas,Christmas9m-f_1800,,,,,11,1,1
+11,Christmas,Christmas9Christmas_1830,,,,,11,1,1
+17,Christmas,ChristmasCVSPm-f_0630,,,,,17,1,1
+17,Christmas,ChristmasCVSPm-f_0715,,,,,17,1,1
+17,Christmas,ChristmasCVSPm-f_0800,,,,,17,1,1
+17,Christmas,ChristmasCVSPm-f_0845,,,,,17,1,1
+14,Christmas,ChristmasCVNPm-f_0630,,,,,14,1,1
+14,Christmas,ChristmasCVNPm-f_0800,,,,,14,1,1
+6,Christmas,Christmas4m-f_0700,,,,,6,1,1
+6,Christmas,Christmas4m-f_0730,,,,,6,1,1
+6,Christmas,Christmas4m-f_0800,,,,,6,1,1
+6,Christmas,Christmas4m-f_0830,,,,,6,1,1
+6,Christmas,Christmas4m-f_0900,,,,,6,1,1
+6,Christmas,Christmas4m-f_0930,,,,,6,1,1
+6,Christmas,Christmas4m-f_1000,,,,,6,1,1
+6,Christmas,Christmas4m-f_1030,,,,,6,1,1
+6,Christmas,Christmas4m-f_1100,,,,,6,1,1
+6,Christmas,Christmas4m-f_1130,,,,,6,1,1
+6,Christmas,Christmas4m-f_1200,,,,,6,1,1
+6,Christmas,Christmas4m-f_1230,,,,,6,1,1
+6,Christmas,Christmas4m-f_1300,,,,,6,1,1
+6,Christmas,Christmas4m-f_1330,,,,,6,1,1
+6,Christmas,Christmas4m-f_1400,,,,,6,1,1
+6,Christmas,Christmas4m-f_1430,,,,,6,1,1
+6,Christmas,Christmas4m-f_1500,,,,,6,1,1
+6,Christmas,Christmas4m-f_1530,,,,,6,1,1
+6,Christmas,Christmas4m-f_1600,,,,,6,1,1
+6,Christmas,Christmas4m-f_1630,,,,,6,1,1
+6,Christmas,Christmas4m-f_1700,,,,,6,1,1
+6,Christmas,Christmas4m-f_1730,,,,,6,1,1
+6,Christmas,Christmas4m-f_1800,,,,,6,1,1
+18,Christmas,ChristmasCVSEm-f_0700,,,,,18,1,1
+18,Christmas,ChristmasCVSEm-f_0800,,,,,18,1,1
+16,Christmas,ChristmasCVSOPm-f_0900,,,,,16,1,1
+16,Christmas,ChristmasCVSOPm-f_1015,,,,,16,1,1
+16,Christmas,ChristmasCVSOPm-f_1130,,,,,16,1,1
+16,Christmas,ChristmasCVSOPm-f_1245,,,,,16,1,1
+18,Christmas,ChristmasCVSEm-f_1400,,,,,18,1,1
+18,Christmas,ChristmasCVSEm-f_1500,,,,,18,1,1
+18,Christmas,ChristmasCVSEm-f_1600,,,,,18,1,1
+18,Christmas,ChristmasCVSEm-f_1700,,,,,18,1,1
+18,Christmas,ChristmasCVSEm-f_1800,,,,,18,1,1
+10,Christmas,Christmas8m-f_1400,,,,,10,1,1
+10,Christmas,Christmas8m-f_1430,,,,,10,1,1
+10,Christmas,Christmas8m-f_1500,,,,,10,1,1
+10,Christmas,Christmas8m-f_1530,,,,,10,1,1
+10,Christmas,Christmas8m-f_1600,,,,,10,1,1
+10,Christmas,Christmas8m-f_1630,,,,,10,1,1
+10,Christmas,Christmas8m-f_1700,,,,,10,1,1
+10,Christmas,Christmas8m-f_1730,,,,,10,1,1
+10,Christmas,Christmas8m-f_1800,,,,,10,1,1
+14,Christmas,ChristmasCVNPm-f_1530,,,,,14,1,1
+14,Christmas,ChristmasCVNPm-f_1700,,,,,14,1,1
+17,Christmas,ChristmasCVSPm-f_1445,,,,,17,1,1
+17,Christmas,ChristmasCVSPm-f_1530,,,,,17,1,1
+17,Christmas,ChristmasCVSPm-f_1615,,,,,17,1,1
+17,Christmas,ChristmasCVSPm-f_1700,,,,,17,1,1
+17,Christmas,ChristmasCVSPm-f_1745,,,,,17,1,1
+15,Christmas,ChristmasIdaho1b_1630,,,,,15,1,1
+15,Christmas,ChristmasIdaho2b_1730,,,,,15,1,1
+18,m-f fal,m-f falCVSEm-f_0450,,,,,18,1,1
+18,m-f fal,m-f falCVSEm-f_0600,,,,,18,1,1
+15,m-f fal,m-f falIdaho1a_0455,,,,,15,1,1
+12,m-f fal,m-f fal11m-f_0530,,,,,12,1,1
+12,m-f fal,m-f fal11m-f_0630,,,,,12,1,1
+12,m-f fal,m-f fal11m-f_0730,,,,,12,1,1
+12,m-f fal,m-f fal11m-f_0830,,,,,12,1,1
+12,m-f fal,m-f fal11m-f_0930,,,,,12,1,1
+12,m-f fal,m-f fal11m-f_1030,,,,,12,1,1
+12,m-f fal,m-f fal11m-f_1130,,,,,12,1,1
+12,m-f fal,m-f fal11m-f_1230,,,,,12,1,1
+12,m-f fal,m-f fal11m-f_1330,,,,,12,1,1
+12,m-f fal,m-f fal11m-f_1430,,,,,12,1,1
+12,m-f fal,m-f fal11m-f_1530,,,,,12,1,1
+12,m-f fal,m-f fal11m-f_1630,,,,,12,1,1
+12,m-f fal,m-f fal11m-f_1730,,,,,12,1,1
+14,m-f fal,m-f falCVNm-f_0545,,,,,14,1,1
+14,m-f fal,m-f falCVNm-f_0715,,,,,14,1,1
+14,m-f fal,m-f falCVNm-f_0845,,,,,14,1,1
+14,m-f fal,m-f falCVNm-f_1015,,,,,14,1,1
+14,m-f fal,m-f falCVNm-f_1145,,,,,14,1,1
+14,m-f fal,m-f falCVNm-f_1315,,,,,14,1,1
+14,m-f fal,m-f falCVNm-f_1445,,,,,14,1,1
+14,m-f fal,m-f falCVNm-f_1615,,,,,14,1,1
+14,m-f fal,m-f falCVNm-f_1745,,,,,14,1,1
+15,m-f fal,m-f falIdaho2a_0605,,,,,15,1,1
+4,m-f fal,m-f fal3m-f_0605,,,,,4,1,1
+5,m-f fal,m-f fal10m-f_0630,,,,,5,1,1
+4,m-f fal,m-f fal3m-f_0700,,,,,4,1,1
+5,m-f fal,m-f fal10m-f_0730,,,,,5,1,1
+4,m-f fal,m-f fal3m-f_0800,,,,,4,1,1
+5,m-f fal,m-f fal10m-f_0830,,,,,5,1,1
+10,m-f fal,m-f fal8m-f_0900,,,,,10,1,1
+5,m-f fal,m-f fal10m-f_0930,,,,,5,1,1
+10,m-f fal,m-f fal8m-f_1000,,,,,10,1,1
+5,m-f fal,m-f fal10m-f_1030,,,,,5,1,1
+10,m-f fal,m-f fal8m-f_1100,,,,,10,1,1
+5,m-f fal,m-f fal10m-f_1130,,,,,5,1,1
+10,m-f fal,m-f fal8m-f_1200,,,,,10,1,1
+5,m-f fal,m-f fal10m-f_1230,,,,,5,1,1
+10,m-f fal,m-f fal8m-f_1300,,,,,10,1,1
+5,m-f fal,m-f fal10m-f_1330,,,,,5,1,1
+4,m-f fal,m-f fal3m-f_1400,,,,,4,1,1
+5,m-f fal,m-f fal10m-f_1430,,,,,5,1,1
+4,m-f fal,m-f fal3m-f_1500,,,,,4,1,1
+5,m-f fal,m-f fal10m-f_1530,,,,,5,1,1
+4,m-f fal,m-f fal3m-f_1600,,,,,4,1,1
+5,m-f fal,m-f fal10m-f_1630,,,,,5,1,1
+4,m-f fal,m-f fal3m-f_1700,,,,,4,1,1
+5,m-f fal,m-f fal10m-f_1730,,,,,5,1,1
+4,m-f fal,m-f fal3m-f_1800,,,,,4,1,1
+5,m-f fal,m-f fal10m-f_1830,,,,,5,1,1
+4,m-f fal,m-f fal3m-f_1900,,,,,4,1,1
+5,m-f fal,m-f fal10m-f_1930,,,,,5,1,1
+4,m-f fal,m-f fal3m-f_2000,,,,,4,1,1
+5,m-f fal,m-f fal10m-f_2030,,,,,5,1,1
+7,m-f fal,m-f fal5m-f_0606,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_0630,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_0700,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_0730,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_0800,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_0830,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_0900,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_0930,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1000,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1030,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1100,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1130,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1200,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1230,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1300,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1330,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1400,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1430,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1500,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1530,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1600,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1630,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1700,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1730,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1800,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1830,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1900,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_1930,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_2000,,,,,7,1,1
+7,m-f fal,m-f fal5m-f_2030,,,,,7,1,1
+1,m-f fal,m-f fal1extm-f_0611,,,,,1,1,1
+1,m-f fal,m-f fal1extm-f_0630,,,,,1,1,1
+2,m-f fal,m-f fal1m-f_0700,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_0730,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_0800,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_0830,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_0900,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_0930,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1000,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1030,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1100,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1130,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1200,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1230,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1300,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1330,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1400,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1430,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1500,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1530,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1600,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1630,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1700,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1730,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1800,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1830,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1900,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_1930,,,,,2,1,1
+2,m-f fal,m-f fal1m-f_2000,,,,,2,1,1
+1,m-f fal,m-f fal1extm-f_2030,,,,,1,1,1
+3,m-f fal,m-f fal2m-f_0613,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_0630,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_0700,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_0730,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_0800,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_0830,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_0900,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_0930,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1000,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1030,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1100,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1130,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1200,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1230,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1300,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1330,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1400,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1430,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1500,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1530,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1600,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1630,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1700,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1730,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1800,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1830,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1900,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_1930,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_2000,,,,,3,1,1
+3,m-f fal,m-f fal2m-f_2030,,,,,3,1,1
+8,m-f fal,m-f fal6m-f_0612,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_0630,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_0700,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_0730,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_0800,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_0830,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_0900,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_0930,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1000,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1030,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1100,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1130,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1200,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1230,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1300,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1330,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1400,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1430,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1500,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1530,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1600,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1630,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1700,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1730,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1800,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1830,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1900,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_1930,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_2000,,,,,8,1,1
+8,m-f fal,m-f fal6m-f_2030,,,,,8,1,1
+9,m-f fal,m-f fal7m-f_0609,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_0630,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_0700,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_0730,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_0800,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_0830,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_0900,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_0930,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1000,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1030,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1100,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1130,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1200,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1230,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1300,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1330,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1400,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1430,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1500,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1530,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1600,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1630,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1700,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1730,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1800,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1830,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1900,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_1930,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_2000,,,,,9,1,1
+9,m-f fal,m-f fal7m-f_2030,,,,,9,1,1
+10,m-f fal,m-f fal8m-f_0608,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_0630,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_0700,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_0730,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_0800,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_0830,,,,,10,1,1
+11,m-f fal,m-f fal9m-f_0610,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_0630,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_0700,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_0730,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_0800,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_0830,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_0900,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_0930,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1000,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1030,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1100,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1130,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1200,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1230,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1300,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1330,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1400,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1430,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1500,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1530,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1600,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1630,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1700,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1730,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1800,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1830,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1900,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_1930,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_2000,,,,,11,1,1
+11,m-f fal,m-f fal9m-f_2030,,,,,11,1,1
+17,m-f fal,m-f falCVSPm-f_0630,,,,,17,1,1
+17,m-f fal,m-f falCVSPm-f_0715,,,,,17,1,1
+17,m-f fal,m-f falCVSPm-f_0800,,,,,17,1,1
+17,m-f fal,m-f falCVSPm-f_0845,,,,,17,1,1
+14,m-f fal,m-f falCVNPm-f_0630,,,,,14,1,1
+14,m-f fal,m-f falCVNPm-f_0800,,,,,14,1,1
+6,m-f fal,m-f fal4m-f_0700,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_0730,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_0800,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_0830,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_0900,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_0930,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1000,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1030,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1100,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1130,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1200,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1230,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1300,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1330,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1400,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1430,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1500,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1530,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1600,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1630,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1700,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1730,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1800,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1830,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1900,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_1930,,,,,6,1,1
+6,m-f fal,m-f fal4m-f_2000,,,,,6,1,1
+18,m-f fal,m-f falCVSEm-f_0700,,,,,18,1,1
+18,m-f fal,m-f falCVSEm-f_0800,,,,,18,1,1
+16,m-f fal,m-f falCVSOPm-f_0900,,,,,16,1,1
+16,m-f fal,m-f falCVSOPm-f_1015,,,,,16,1,1
+16,m-f fal,m-f falCVSOPm-f_1130,,,,,16,1,1
+16,m-f fal,m-f falCVSOPm-f_1245,,,,,16,1,1
+18,m-f fal,m-f falCVSEm-f_1400,,,,,18,1,1
+18,m-f fal,m-f falCVSEm-f_1500,,,,,18,1,1
+18,m-f fal,m-f falCVSEm-f_1600,,,,,18,1,1
+18,m-f fal,m-f falCVSEm-f_1700,,,,,18,1,1
+18,m-f fal,m-f falCVSEm-f_1800,,,,,18,1,1
+10,m-f fal,m-f fal8m-f_1400,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_1430,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_1500,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_1530,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_1600,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_1630,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_1700,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_1730,,,,,10,1,1
+10,m-f fal,m-f fal8m-f_1800,,,,,10,1,1
+14,m-f fal,m-f falCVNPm-f_1530,,,,,14,1,1
+14,m-f fal,m-f falCVNPm-f_1700,,,,,14,1,1
+17,m-f fal,m-f falCVSPm-f_1445,,,,,17,1,1
+17,m-f fal,m-f falCVSPm-f_1530,,,,,17,1,1
+17,m-f fal,m-f falCVSPm-f_1615,,,,,17,1,1
+17,m-f fal,m-f falCVSPm-f_1700,,,,,17,1,1
+17,m-f fal,m-f falCVSPm-f_1745,,,,,17,1,1
+15,m-f fal,m-f falIdaho1b_1630,,,,,15,1,1
+15,m-f fal,m-f falIdaho2b_1730,,,,,15,1,1
+2,m-f fal,m-f fal1Pm-f_0715,,,,,2,1,1
+2,m-f fal,m-f fal1Pm-f_0745,,,,,2,1,1
+2,m-f fal,m-f fal1Pm-f_0815,,,,,2,1,1
+2,m-f fal,m-f fal1Pm-f_0845,,,,,2,1,1
+2,m-f fal,m-f fal1Pm-f_0915,,,,,2,1,1
+2,m-f fal,m-f fal1Pm-f_0945,,,,,2,1,1
+2,m-f fal,m-f fal1Pm-f_1015,,,,,2,1,1
+2,m-f fal,m-f fal1Pm-f_1515,,,,,2,1,1
+2,m-f fal,m-f fal1Pm-f_1545,,,,,2,1,1
+2,m-f fal,m-f fal1Pm-f_1615,,,,,2,1,1
+2,m-f fal,m-f fal1Pm-f_1645,,,,,2,1,1
+2,m-f fal,m-f fal1Pm-f_1715,,,,,2,1,1
+2,m-f fal,m-f fal1Pm-f_1745,,,,,2,1,1
