@@ -1,6 +1,0 @@
-service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date
-m-f spr,1,1,1,1,1,0,0,20170109,20170506
-sat,0,0,0,0,0,1,0,20160102,20171231
-m-f sum,1,1,1,1,1,0,0,20170508,20170828
-Christmas,0,0,1,0,0,0,0,20151225,20151225
-m-f fal,1,1,1,1,1,0,0,20160829,20170109
