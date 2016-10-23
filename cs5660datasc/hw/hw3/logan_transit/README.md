@@ -1,3 +1,5 @@
+This is a clone of https://gist.github.com/irees/272e5dc57614cab595a0
+
 # Transitland Frequency Visualization
 
 Accompanies blog post: [Transit dimensions: Transitland Schedule API](http://mapzen.com/blog/the-transit-dimension-transit-land-schedule-api)
