@@ -1,18 +1,43 @@
 USE loganriverodm;
 
--- load datavalues
-LOAD DATA LOCAL INFILE '/Users/karunjoseph/usu/usu-coursework/cee6110hydroinfo/hw/hw5/Hydroinformatics_Assignment-5_Data/datavalues.csv'
-INTO TABLE DataValues
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\r\n'
-IGNORE 1 LINES
-(DataValue,LocalDateTime,UTCOffset,DateTimeUTC,SiteID,VariableID,CensorCode,QualifierID,MethodID,SourceID,QualityControlLevelID);
-
 -- check if datavalues were loaded 
-SELECT COUNT(*) FROM datavalues
+SELECT COUNT(*) FROM datavalues;
 
--- Q1. Period of record, number, max, min, avg of water temp obs. TODO: begin, end date
-SELECT COUNT(DataValue), MAX(DataValue), MIN(DataValue), AVG(DataValue) FROM datavalues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999; -- GROUP BY LocalDateTime ;
+/*
+Q1. A table listing the period of record for water temperature measurements (e.g., begin
+and end date), the number of observations, and the overall minimum, maximum,
+and average values for each site at which quality controlled (QualityControlLevelID
+= 1) water temperature (VariableID = 57) data have been collected.
+*/
+SELECT SiteID, BeginDateTime, EndDateTime FROM SeriesCatalog WHERE VariableID = 57 AND QualityControlLevelID = 1;
+SELECT SiteID, COUNT(DataValue), MAX(DataValue), MIN(DataValue), AVG(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 GROUP BY SiteID; 
 
--- 
+
+/*
+Q2. A table listing the total number of temperature observations, the number of
+observations greater than the water quality criterion value (i.e., 20 degrees C), and
+the overall percent exceedance of the water quality criterion value for each site at
+which quality controlled water temperature data have been collected
+*/
+SELECT SiteID, COUNT(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 GROUP BY SiteID;
+SELECT SiteID, COUNT(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND DataValue > 20 GROUP BY SiteID;
+SELECT SiteID, COUNT(DataValue)/(SELECT COUNT(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND SiteID = 2) FROM datavalues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND DataValue > 20 GROUP BY SiteID;
+
+
+/*
+Q3 A table for the Logan River at Mendon Road (SiteID = 2) listing the percent
+exceedance of the water quality standard for each month of the year.
+TODO: divide count by per month observations to get exceedance
+*/
+SELECT SiteID, COUNT(DataValue), MONTH(LocalDateTime) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND DataValue > 20 AND SiteID = 2 GROUP BY MONTH(LocalDateTime);
+
+
+/*
+Q4, A table listing the percent exceedance of the water quality standard for each site at
+which quality controlled data are available during the month of July, which is
+generally a critical period with low flows and elevated temperatures.
+TODO: replace avg with percent exceedance
+*/
+SELECT SiteID, AVG(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND MONTH(LocalDateTime) = 7 GROUP BY SiteID;
+
+
