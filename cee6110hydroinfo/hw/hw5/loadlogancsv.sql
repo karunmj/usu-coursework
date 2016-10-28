@@ -21,23 +21,25 @@ which quality controlled water temperature data have been collected
 */
 SELECT SiteID, COUNT(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 GROUP BY SiteID;
 SELECT SiteID, COUNT(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND DataValue > 20 GROUP BY SiteID;
+-- Only SiteID = 2 has above 20 deg c temps
 SELECT SiteID, COUNT(DataValue)/(SELECT COUNT(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND SiteID = 2) FROM datavalues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND DataValue > 20 GROUP BY SiteID;
 
 
 /*
 Q3 A table for the Logan River at Mendon Road (SiteID = 2) listing the percent
 exceedance of the water quality standard for each month of the year.
-TODO: divide count by per month observations to get exceedance
 */
 SELECT SiteID, COUNT(DataValue), MONTH(LocalDateTime) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND DataValue > 20 AND SiteID = 2 GROUP BY MONTH(LocalDateTime);
+-- Months where temp increases are July (7), August (8)
+SELECT COUNT(DataValue)/(SELECT COUNT(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND SiteID = 2 AND MONTH(LocalDateTime) = 7) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND DataValue > 20 AND SiteID = 2 AND MONTH(LocalDateTime) = 7; 
+SELECT COUNT(DataValue)/(SELECT COUNT(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND SiteID = 2 AND MONTH(LocalDateTime) = 8) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND DataValue > 20 AND SiteID = 2 AND MONTH(LocalDateTime) = 8; 
 
 
 /*
 Q4, A table listing the percent exceedance of the water quality standard for each site at
 which quality controlled data are available during the month of July, which is
 generally a critical period with low flows and elevated temperatures.
-TODO: replace avg with percent exceedance
 */
-SELECT SiteID, AVG(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND MONTH(LocalDateTime) = 7 GROUP BY SiteID;
+SELECT COUNT(DataValue)/(SELECT COUNT(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND SiteID = 2 AND MONTH(LocalDateTime) = 7) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND DataValue > 20 AND SiteID = 2 AND MONTH(LocalDateTime) = 7; 
 
 
