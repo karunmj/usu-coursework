@@ -54,7 +54,6 @@ LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (DataValue,LocalDateTime,UTCOffset,DateTimeUTC,SiteID,VariableID,MethodID,SourceID,QualityControlLevelID);
 
-
 -- load sp file 
 LOAD DATA LOCAL INFILE '/Users/karunjoseph/usu/usu-coursework/cee6110hydroinfo/hw/hw4/Hydroinformatics_Assignment-4_Data/sp.csv'
 INTO TABLE datavalues
@@ -64,7 +63,16 @@ LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (DataValue,LocalDateTime,UTCOffset,DateTimeUTC,SiteID,VariableID,MethodID,SourceID,QualityControlLevelID);
 
+-- load usgs flow data file
+LOAD DATA LOCAL INFILE '/Users/karunjoseph/usu/usu-coursework/cee6110hydroinfo/hw/hw4/Hydroinformatics_Assignment-4_Data/dailyflow.csv'
+INTO TABLE datavalues
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(DataValue,LocalDateTime,UTCOffset,SiteID,VariableID,MethodID,SourceID,QualityControlLevelID);
+
 
 SET SQL_SAFE_UPDATES = 0;
-USE loganriverodm;
+USE odm;
 CALL sp_UpdateSeriesCatalog();

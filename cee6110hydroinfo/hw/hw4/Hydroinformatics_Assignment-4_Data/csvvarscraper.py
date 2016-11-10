@@ -55,12 +55,18 @@ sp.to_csv('sp.csv', index=False)
 
 ##usgs gauge data
 logandaily = pd.read_csv('LoganDailyflow.csv')
-logandailyflow = logandaily[['agency_cd', 'site_no', 'Date', 'X_00060_00003']]
+logandailyflow = logandaily[['agency_id', 'site_no', 'Date', 'X_00060_00003']]
 
-#TODO:
-# siteid = [] * len(logandailyflow.index) #new site id
-# variableid = [] * len(logandailyflow.index) #insert variable id for usgs flow
-# methodid = [26] * len(logandailyflow.index) 
-# sourceid = [2] * len(logandailyflow.index) 
-# qualitycontrollevelid = [0] * len(logandailyflow.index)
+logandailyflow['SiteID'] = [14] * len(logandailyflow.index) #new site id
+logandailyflow['VariableID'] = [17] * len(logandailyflow.index) #insert variable id for usgs flow
+logandailyflow['MethodID'] = [26] * len(logandailyflow.index) 
+logandailyflow['SourceID'] = [2] * len(logandailyflow.index) 
+logandailyflow['QualityControlLevelID'] = [0] * len(logandailyflow.index)
+logandailyflow['UTCOffset'] = [-7.0] * len(logandailyflow.index)
+logandailyflow.rename(columns={'X_00060_00003': 'DataValue', 'Date': 'LocalDateTime'}, inplace=True)
+#logandailyflow['DateTimeUTC']
+
+logandailyflow = logandailyflow[['DataValue', 'LocalDateTime' ,'UTCOffset', 'SiteID', 'VariableID' ,'MethodID', 'SourceID', 'QualityControlLevelID']]
+logandailyflow.to_csv('dailyflow.csv', index=False)
+
 
