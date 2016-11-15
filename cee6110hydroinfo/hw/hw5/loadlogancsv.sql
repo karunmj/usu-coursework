@@ -42,4 +42,4 @@ generally a critical period with low flows and elevated temperatures.
 */
 SELECT COUNT(DataValue)/(SELECT COUNT(DataValue) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND SiteID = 2 AND MONTH(LocalDateTime) = 7) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND DataValue > 20 AND SiteID = 2 AND MONTH(LocalDateTime) = 7; 
 
-
+SELECT DataValue, MONTH(LocalDateTime), TIME(LocalDateTime) FROM DataValues WHERE VariableID = 57 AND QualityControlLevelID = 1 AND DataValue <> -9999 AND SiteID = 2 AND MONTH(LocalDateTime) = 7;
