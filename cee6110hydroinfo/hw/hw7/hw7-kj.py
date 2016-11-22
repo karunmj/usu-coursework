@@ -4,7 +4,7 @@ import numpy as np
 import datetime
 
 ##Open connection to db
-cnxn = pymysql.connect(host='127.0.0.1', unix_socket='/tmp/mysql.sock', user='root', passwd="stevekarun", db='loganriverodm')
+cnxn = pymysql.connect(host='127.0.0.1', unix_socket='/tmp/mysql.sock', user='root', passwd="", db='loganriverodm')
 crsr = cnxn.cursor()
 
 
